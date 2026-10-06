@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#A63D40">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ayyan Kitab Ghr">
+<title>Ayyan Kitab Ghr N Photostate — Stock Register</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/JsBarcode/3.11.5/JsBarcode.all.min.js"></script>
+<style>
+:root{--paper:#F3EAD6;--paper-dark:#ECE0C6;--ink:#2B2013;--ink-soft:#5B4C36;--rule:#C9B78C;--red:#A63D40;--brass:#A8791F;--green:#3F6B4F;--green-bg:#E4EEE3;--red-bg:#F5E4E1;--card:#FBF6EA;--blue:#3A6EA5;--blue-bg:#E3ECF5}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);background-image:linear-gradient(var(--paper-dark) 1px,transparent 1px);background-size:100% 40px;font-family:'Noto Sans Arabic','Inter',sans-serif;color:var(--ink);min-height:100vh;padding-bottom:40px;-webkit-tap-highlight-color:transparent}
+header{padding:24px 20px 14px;text-align:center;border-bottom:3px double var(--red);background:linear-gradient(180deg,rgba(255,255,255,.35),transparent);position:relative}
+header h1{font-family:'Noto Nastaliq Urdu',serif;font-size:1.9rem;margin:0 0 4px;font-weight:700}header p{margin:0;font-size:.82rem;color:var(--ink-soft)}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px auto 0;max-width:820px;padding:0 12px}
+nav button{flex:1 1 auto;min-width:78px;padding:10px 6px;background:var(--card);border:1px solid var(--rule);border-bottom:3px solid var(--rule);color:var(--ink-soft);font-family:inherit;font-size:.78rem;font-weight:600;cursor:pointer;border-radius:6px 6px 0 0}
+nav button.active{background:var(--paper);color:var(--ink);border-bottom:3px solid var(--red)}
+main{max-width:820px;margin:0 auto;padding:18px 14px 0}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:16px;margin-bottom:16px;box-shadow:0 1px 0 var(--rule)}
+.card h2{margin:0 0 14px;font-size:1.05rem;color:var(--brass);border-bottom:1px dashed var(--rule);padding-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.card h2 .h2-action{font-size:.75rem;color:var(--ink-soft);font-weight:500;cursor:pointer;border:1px solid var(--rule);padding:4px 10px;border-radius:4px;background:#fff}
+label{display:block;font-size:.85rem;color:var(--ink-soft);margin:10px 0 4px}
+input[type=text],input[type=number],input[type=date],input[type=tel],input[type=password],input[type=email],select{width:100%;padding:9px 10px;border:1px solid var(--rule);border-radius:4px;background:#fff;font-family:inherit;font-size:.95rem;color:var(--ink)}
+input:focus,select:focus{outline:2px solid rgba(168,121,31,.25);border-color:var(--brass)}
+.row2,.row3{display:flex;gap:10px}.row2>div,.row3>div{flex:1}
+button.primary{margin-top:16px;width:100%;padding:12px;background:var(--red);color:#fff;border:none;border-radius:5px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer}
+button.secondary{margin-top:10px;width:100%;padding:10px;background:transparent;color:var(--brass);border:1px solid var(--brass);border-radius:5px;font-size:.92rem;font-weight:600;font-family:inherit;cursor:pointer}
+button.small{padding:6px 12px;background:var(--ink);color:#fff;border:none;border-radius:4px;font-size:.78rem;cursor:pointer;font-family:inherit;margin:1px}
+button.small.blue{background:var(--blue)}
+button.small.green{background:var(--green)}
+button.small.warn{background:var(--brass)}
+button.small.danger{background:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th,td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--rule)}
+th{color:var(--ink-soft);font-weight:600;font-size:.76rem;border-bottom:2px solid var(--red);background:rgba(255,255,255,.5)}
+td.num{font-family:Inter,sans-serif;direction:ltr}
+.pill{display:inline-block;padding:2px 10px;border-radius:12px;font-family:Inter,sans-serif;font-weight:600;font-size:.78rem}
+.pill.ok{background:var(--green-bg);color:var(--green)}
+.pill.low{background:var(--red-bg);color:var(--red)}
+.pill.info{background:var(--blue-bg);color:var(--blue)}
+.pill.warn{background:#FFF6E0;color:var(--brass)}
+.pill.deleted{background:#E8E0D0;color:#888;text-decoration:line-through}
+.pill.restored{background:#E8F0E5;color:#3F6B4F;border:1px dashed #3F6B4F}
+.pill.archived{background:#FFF0E0;color:#A8791F;border:1px dashed #A8791F}
+.empty{text-align:center;color:var(--ink-soft);padding:24px 10px;font-size:.9rem}
+.item-name{text-align:right;font-weight:600}
+.del{background:none;border:none;color:var(--red);font-size:1rem;cursor:pointer;padding:2px 6px}
+.hint{font-size:.78rem;color:var(--ink-soft);margin-top:6px;line-height:1.5}
+.entries-list .erow,.bills-list .brow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--rule);font-size:.9rem;gap:8px}
+.erow .meta,.brow .meta{color:var(--ink-soft);font-size:.76rem;margin-top:2px}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 22px;border-radius:20px;font-size:.9rem;opacity:0;transition:opacity .25s;pointer-events:none;z-index:2000;max-width:90vw;text-align:center}
+.toast.show{opacity:1}
+.code-cell{font-family:Inter,sans-serif;direction:ltr;font-size:.76rem;color:var(--ink-soft)}
+.bill-line-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--rule);font-size:.9rem;gap:8px}
+.bill-total{display:flex;justify-content:space-between;padding-top:12px;font-size:1.1rem;font-weight:700;border-top:2px solid var(--red);margin-top:8px}
+.add-line-row{display:flex;gap:8px;align-items:flex-end}.add-line-row select{flex:2}.add-line-row input{flex:1}.add-line-row button{padding:9px 14px;background:var(--brass);color:#fff;border:none;border-radius:4px;font-family:inherit;cursor:pointer}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{padding:12px;border:1px solid var(--rule);border-radius:5px;background:#fff;text-align:center}
+.stat .value{font-family:Inter,sans-serif;font-size:1.15rem;font-weight:700;margin-top:4px}
+.stat .label{margin:0;font-size:.76rem;color:var(--ink-soft)}
+.stat.warn{background:#FFF6E0;border-color:var(--brass)}
+.stat.danger{background:var(--red-bg);border-color:var(--red)}
+.customer-row{display:flex;gap:8px}.customer-row select{flex:2}.customer-row input{flex:1}
+.payment-box{margin-top:12px;padding:12px;border:1px dashed var(--rule);border-radius:5px;background:#fff}
+#print-region{display:none}
+@media print{html,body{height:auto!important;min-height:0!important;margin:0!important;padding:0!important;background:#fff!important}body>*:not(#appDiv){display:none!important}#appDiv>*:not(#print-region){display:none!important}#appDiv{display:block!important;padding:0!important;margin:0!important}#print-region{display:block;position:static;width:100%;background:#fff;color:#000;padding:20px}}
+.inv-head{text-align:center;margin-bottom:14px}
+.inv-head h2{font-family:'Noto Nastaliq Urdu',serif;margin:0;font-size:1.5rem}
+.inv-head .shop-meta{font-size:.8rem;color:#333;margin-top:2px}
+.inv-meta{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:10px}
+.inv-table{width:100%;border-collapse:collapse}
+.inv-table th,.inv-table td{border:1px solid #999;padding:6px 8px;font-size:.85rem}
+.inv-total{text-align:left;font-size:1.1rem;font-weight:700;margin-top:10px;direction:ltr}
+.inv-thanks{text-align:center;margin-top:16px;font-size:.85rem;font-style:italic;border-top:1px dashed #999;padding-top:10px}
+.label-print{text-align:center;padding:14px;border:1px dashed #999;display:inline-block;margin:6px}
+.label-print .lname{font-size:1rem;font-weight:700;margin-top:6px}
+.label-print .lprice{font-size:.9rem;margin-top:4px;direction:ltr}
+.label-print .lshop{font-size:.75rem;color:#555}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:3000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:20px;max-width:440px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto}
+.modal-box h3{margin:0 0 12px;color:var(--brass);font-size:1.05rem}
+.modal-box p{margin:0 0 14px;font-size:.9rem;color:var(--ink-soft)}
+.modal-box input,.modal-box select{width:100%;padding:9px 10px;border:1px solid var(--rule);border-radius:4px;font-family:inherit;font-size:.95rem;margin-bottom:10px;background:#fff}
+.modal-actions{display:flex;gap:8px;margin-top:8px}
+.modal-actions button{flex:1;padding:10px;border-radius:5px;font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;border:none}
+.modal-actions .ok{background:var(--red);color:#fff}
+.modal-actions .cancel{background:transparent;color:var(--ink-soft);border:1px solid var(--rule)}
+.warn-box{background:#FFF6E0;border:1px dashed var(--brass);border-radius:5px;padding:10px;font-size:.8rem;color:var(--ink-soft);margin-top:10px;line-height:1.5}
+.search-bar{display:flex;gap:6px;margin-bottom:10px}.search-bar input{flex:1}
+.chip-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chip{padding:6px 14px;background:#fff;border:1px solid var(--rule);border-radius:16px;font-size:.78rem;cursor:pointer;color:var(--ink-soft);font-family:inherit}
+.chip.active{background:var(--red);color:#fff;border-color:var(--red)}
+.profit-positive{color:var(--green);font-weight:600}
+.profit-negative{color:var(--red);font-weight:600}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.quick-grid button{padding:14px 6px;background:#fff;border:1px solid var(--rule);border-radius:6px;font-family:inherit;font-size:.78rem;font-weight:600;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+.quick-grid button .qi{font-size:1.4rem}
+@media(max-width:560px){.row3{flex-direction:column;gap:0}.add-line-row{flex-wrap:wrap}.add-line-row select{flex:1 1 100%}.add-line-row input{flex:1}.customer-row{flex-wrap:wrap}.customer-row select{flex:1 1 100%}table{font-size:.74rem}th,td{padding:6px 3px}.stat-grid{grid-template-columns:1fr 1fr}header h1{font-size:1.4rem}nav button{font-size:.72rem;min-width:70px;padding:8px 4px}.quick-grid{grid-template-columns:repeat(2,1fr)}}
+.nav-badge{display:inline-block;min-width:18px;padding:1px 6px;margin-left:4px;border-radius:10px;background:var(--red);color:#fff;font-size:.7rem;font-family:Inter,sans-serif;line-height:1.3}
+#stat-low{cursor:pointer}
+.date-hint{margin-top:3px;margin-bottom:0;color:var(--brass);font-weight:600}
+.ls-row-out{background:var(--red-bg);border-radius:4px;padding-left:8px;padding-right:8px}
+.item-search-box{position:relative}
+#b-item-results,#e-item-results,#p-item-results{position:relative;z-index:10}
+#b-item-results .sr-item,#e-item-results .sr-item,#p-item-results .sr-item{padding:10px 12px;border-bottom:1px dashed var(--rule);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+#b-item-results .sr-item:hover,#e-item-results .sr-item:hover,#p-item-results .sr-item:hover{background:var(--blue-bg)}
+.bill-row-active{border-left:4px solid var(--green);padding-left:8px}
+.bill-row-refunded{border-left:4px solid var(--brass);padding-left:8px;background:#FFFDF5}
+.bill-row-void{border-left:4px solid var(--red);padding-left:8px;background:#FFF8F8}
+.bill-row-exchanged{border-left:4px solid var(--blue);padding-left:8px;background:#F8FBFF}
+.bill-row-restored{border-left:4px solid var(--green);padding-left:8px;border-right:3px dashed var(--green)}
+.delete-list{max-height:50vh;overflow-y:auto;border:1px solid var(--rule);border-radius:6px;background:#fff;margin:10px 0}
+.delete-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px dashed var(--rule)}
+.delete-row:last-child{border-bottom:none}
+.delete-row input[type=checkbox]{width:18px;height:18px;flex-shrink:0;cursor:pointer}
+.delete-row label{flex:1;margin:0;cursor:pointer;font-size:.88rem;color:var(--ink)}
+.delete-row .meta{font-size:.75rem;color:var(--ink-soft);margin-top:2px}
+.select-all-bar{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--blue-bg);border-radius:6px;margin-bottom:8px}
+.select-all-bar input[type=checkbox]{width:20px;height:20px;cursor:pointer}
+.select-all-bar label{flex:1;margin:0;font-weight:600;cursor:pointer;font-size:.88rem}
+.modal-box.large{max-width:640px}
+.trash-card{border:1px solid var(--rule);border-radius:6px;background:#fff;padding:12px;margin-bottom:10px}
+.trash-card .trash-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.trash-card .trash-info{flex:1;min-width:200px}
+.trash-card .trash-name{font-weight:700;color:var(--ink);font-size:.95rem}
+.trash-card .trash-meta{font-size:.75rem;color:var(--ink-soft);margin-top:3px}
+.trash-card .trash-status{font-size:.82rem;font-weight:700;margin-top:6px}
+.trash-card .trash-actions{display:flex;gap:6px;flex-wrap:wrap}
+.trash-card.warning{background:#FFE5E5;border-color:#A63D40;border-width:2px}
+.trash-card.warning .trash-name{color:#A63D40}
+.trash-card.refunded{background:#FFF6E0;border-color:#A8791F}
+.trash-card.void{background:#F5E4E1;border-color:#A63D40}
+.trash-card.exchanged{background:#E3ECF5;border-color:#3A6EA5}
+.trash-card.restored{background:#E4EEE3;border-color:#3F6B4F}
+.trash-card.archived{background:#FFF0E0;border-color:#A8791F;border-width:2px;border-style:dashed}
+.unrefunded-box{background:#FFE5E5;border:2px solid #A63D40;border-radius:6px;padding:14px;margin-top:10px}
+.unrefunded-box h3{color:#A63D40;margin:0 0 8px;font-size:1rem}
+.unrefunded-box .ufr-item{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #A63D40;font-size:.85rem}
+.unrefunded-box .ufr-item:last-child{border-bottom:none}
+.unrefunded-box .ufr-total{display:flex;justify-content:space-between;padding-top:10px;border-top:2px solid #A63D40;font-weight:700;color:#A63D40;margin-top:6px}
+.archive-card{background:#FFF0E0;border:2px dashed #A8791F;border-radius:6px;padding:12px;margin-bottom:10px}
+.archive-card .arc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.archive-card .arc-info{flex:1;min-width:200px}
+.archive-card .arc-name{font-weight:700;color:#A8791F;font-size:.95rem}
+.archive-card .arc-meta{font-size:.75rem;color:var(--ink-soft);margin-top:3px}
+.archive-card .arc-status{font-size:.82rem;font-weight:700;margin-top:6px;color:#A63D40}
+.archive-card .arc-actions{display:flex;gap:6px;flex-wrap:wrap}
+.offline-badge{position:absolute;top:12px;right:12px;font-size:.7rem;padding:4px 10px;border-radius:12px;font-family:Inter,sans-serif;font-weight:600;background:var(--green-bg);color:var(--green);border:1px solid var(--green)}
+</style>
+</head><body>
+
+<div class="app" id="appDiv">
+<header>
+<div class="offline-badge">💾 Offline</div>
+<h1>Ayyan Kitab Ghr N Photostate</h1>
+<p>Stock & Sales Register — Offline Mode</p>
+</header>
+
+<nav>
+<button data-tab="dashboard" class="active">Dashboard</button>
+<button data-tab="entry">Stock In</button>
+<button data-tab="items">Items</button>
+<button data-tab="lowstock">Low Stock <span class="nav-badge" id="nav-low-badge" style="display:none">0</span></button>
+<button data-tab="bill">Billing</button>
+<button data-tab="production">Production</button>
+<button data-tab="customers">Khata</button>
+<button data-tab="expiry">Expiry</button>
+<button data-tab="expense">Expense</button>
+<button data-tab="report">Reports</button>
+<button data-tab="trash">🗑️ Trash</button>
+<button data-tab="archive">📦 Archive <span class="nav-badge" id="nav-archive-badge" style="display:none">0</span></button>
+<button data-tab="settings">Settings</button>
+</nav>
+
+<main>
+
+<!-- DASHBOARD -->
+<section id="tab-dashboard">
+<div class="card"><h2>Today's Overview</h2><div class="stat-grid">
+<div class="stat"><div class="label">Today's Sales</div><div class="value" id="d-sales">Rs. 0</div></div>
+<div class="stat"><div class="label">Today's Bills</div><div class="value" id="d-bills">0</div></div>
+<div class="stat"><div class="label">Today's Profit</div><div class="value" id="d-profit">Rs. 0</div></div>
+<div class="stat"><div class="label">Today's Production</div><div class="value" id="d-production">0</div></div>
+<div class="stat" id="stat-low"><div class="label">Low Stock</div><div class="value" id="d-low">0</div></div>
+<div class="stat" id="stat-expiry"><div class="label">Near Expiry</div><div class="value" id="d-expiry">0</div></div>
+<div class="stat"><div class="label">Total Items</div><div class="value" id="d-items">0</div></div>
+<div class="stat" id="stat-due"><div class="label">Khata Due</div><div class="value" id="d-due">Rs. 0</div></div>
+<div class="stat" id="stat-expense"><div class="label">Today's Expense</div><div class="value" id="d-expense">Rs. 0</div></div>
+<div class="stat" id="stat-netprofit"><div class="label">Today's Net Profit</div><div class="value" id="d-netprofit">Rs. 0</div></div>
+<div class="stat" id="stat-monthexpense"><div class="label">This Month Expense</div><div class="value" id="d-monthexpense">Rs. 0</div></div>
+<div class="stat" id="stat-archive"><div class="label">📦 Archived Bills</div><div class="value" id="d-archive">0</div></div>
+</div></div>
+<div class="card"><h2>Quick Actions</h2><div class="quick-grid">
+<button onclick="showTab('bill')"><span class="qi">🛒</span>New Sale</button>
+<button onclick="showTab('production')"><span class="qi">📦</span>Production</button>
+<button onclick="showTab('entry')"><span class="qi">📥</span>Stock In</button>
+<button onclick="showTab('items')"><span class="qi">➕</span>Add Item</button>
+<button onclick="showTab('customers')"><span class="qi">👤</span>Khata</button>
+<button onclick="showTab('expense')"><span class="qi">💸</span>Expense</button>
+<button onclick="showTab('report')"><span class="qi">📊</span>Reports</button>
+<button onclick="showTab('archive')"><span class="qi">📦</span>Archive</button>
+</div></div>
+<div class="card"><h2>Recent Bills</h2><div class="bills-list" id="dash-bills"><div class="empty">No bills yet</div></div></div>
+<div class="card"><h2>Low Stock Alert <span class="h2-action" onclick="showTab('lowstock')">View all</span></h2><div id="dash-low"><div class="empty">All items are in stock</div></div></div>
+</section>
+
+<!-- LOW STOCK -->
+<section id="tab-lowstock" style="display:none">
+<div class="card"><h2>⛔ Out of Stock <span class="pill low" id="ls-out-count">0</span></h2><div id="ls-out-list"><div class="empty">Koi item khatam nahi</div></div></div>
+<div class="card"><h2>⚠️ Low Stock <span class="pill low" id="ls-low-count">0</span></h2><div id="ls-low-list"><div class="empty">Koi item kam nahi</div></div>
+<div class="hint">Jab kisi item ka stock us ki "Low Stock Alert" limit tak pohanchta hai to wo khud yahan aa jata hai.</div></div>
+</section>
+
+<!-- STOCK ENTRY -->
+<section id="tab-entry" style="display:none">
+<div class="card"><h2>Stock In / Adjustment</h2>
+<div class="hint" style="margin-top:0">Goods receive karne, waste, ya manual correction ke liye.</div>
+<label>Date</label><input type="date" id="e-date">
+<label>Item --- Type karein</label>
+<input type="text" id="e-item-search" placeholder="🔍 Item ka naam / barcode..." autocomplete="off">
+<div id="e-item-results" style="max-height:200px;overflow-y:auto;border:1px solid var(--rule);border-radius:4px;margin-top:6px;display:none;background:#fff"></div>
+<select id="e-item" style="position:absolute;left:-9999px"></select>
+<div class="row2"><div><label>Manual Sale (optional)</label><input type="number" id="e-sold" placeholder="0" min="0"></div><div><label>Received</label><input type="number" id="e-received" placeholder="0" min="0"></div></div>
+<div class="row2"><div><label>Batch Expiry (optional)</label><input type="date" id="e-expiry"></div><div><label>Waste / Damaged</label><input type="number" id="e-waste" placeholder="0" min="0"></div></div>
+<label>Note (optional)</label><input type="text" id="e-note" placeholder="Supplier name, batch info">
+<button class="primary" id="save-entry">Save Stock Entry</button></div>
+<div class="card"><h2>Recent Entries</h2><div class="entries-list" id="entries-list"><div class="empty">No entries yet</div></div></div>
+</section>
+
+<!-- ITEMS -->
+<section id="tab-items" style="display:none">
+<div class="card"><h2>Add New Item</h2>
+<label>Item Name</label><input type="text" id="i-name" placeholder="e.g. Notebook, Pen, Photostate Page">
+<label>Barcode / Code (khali chhodein to auto-generate)</label>
+<input type="text" id="i-barcode" placeholder="Barcode ya code type karein..." autocomplete="off">
+<div class="hint" id="i-barcode-msg" style="margin-top:4px"></div>
+<div class="row2">
+<div><label>Category</label>
+<select id="i-category" onchange="handleCategoryChange()">
+<option value="Books">Books</option>
+<option value="Stationery">Stationery</option>
+<option value="Photostate">Photostate</option>
+<option value="Printing">Printing</option>
+<option value="Lamination">Lamination</option>
+<option value="Binding">Binding</option>
+<option value="Copies">Copies</option>
+<option value="Other">Other (khud likhein)</option>
+</select>
+<input type="text" id="i-category-custom" placeholder="Apna category likhein" style="display:none;margin-top:6px">
+</div>
+<div><label>Unit</label><input type="text" id="i-unit" placeholder="pcs, page, copy"></div>
+</div>
+<div class="row3">
+<div><label>Opening Stock</label><input type="number" id="i-opening" placeholder="0" min="0"></div>
+<div><label>Purchase Price</label><input type="number" id="i-cost" placeholder="0" min="0"></div>
+<div><label>Selling Price</label><input type="number" id="i-price" placeholder="0" min="0"></div>
+</div>
+<div class="row2">
+<div><label>Low Stock Alert</label><input type="number" id="i-lowstock" placeholder="5" min="0"></div>
+<div><label>Item Type</label><select id="i-type">
+<option value="resale">Resale (kharid kar bechna)</option>
+<option value="production">Production (khud tayyar)</option>
+</select></div>
+</div>
+<button class="primary" id="save-item">Save Item</button></div>
+<div class="card"><h2>Items List <span class="h2-action" id="print-rate-list">🖨️ Rate List</span></h2>
+<div class="search-bar">
+<input type="text" id="item-search" placeholder="Search items...">
+<select id="item-filter-cat" style="flex:1"><option value="">All Categories</option></select>
+</div>
+<button class="secondary" id="bulk-delete-items">🗑️ Bulk Delete Items</button>
+<table><thead><tr><th>Item</th><th>Category</th><th>Buy</th><th>Sell</th><th>Stock</th><th>Code</th><th></th></tr></thead><tbody id="items-table"></tbody></table>
+<div class="empty" id="items-empty" style="display:none">No items added</div></div>
+</section>
+
+<!-- BILLING -->
+<section id="tab-bill" style="display:none">
+<div class="card"><h2>New Sale / Billing</h2>
+<label>Customer</label>
+<div class="customer-row"><select id="b-customer"><option value="">Walk-in Customer</option></select><input type="text" id="b-new-customer" placeholder="New customer (optional)"></div>
+<label>Add Item --- Type karein</label>
+<div class="add-line-row">
+<input type="text" id="b-item-search" placeholder="🔍 Item ka naam / code..." autocomplete="off" style="flex:2">
+<input type="number" id="b-qty" placeholder="Qty" min="1" value="1" style="flex:1">
+<button id="b-add-line">Add</button>
+</div>
+<div id="b-item-results" style="max-height:220px;overflow-y:auto;border:1px solid var(--rule);border-radius:4px;margin-top:6px;display:none;background:#fff"></div>
+<select id="b-item" style="position:absolute;left:-9999px"></select>
+<div id="bill-lines" style="margin-top:14px"><div class="empty">No items added</div></div>
+<div class="payment-box"><div class="row2">
+<div><label>Discount</label><input type="number" id="b-discount" value="0" min="0"></div>
+<div><label>Paid (Customer ne diye)</label><input type="number" id="b-paid" value="0" min="0"></div>
+</div>
+<div class="row2" style="margin-top:8px">
+<div><label>Payment Method</label><select id="b-method">
+<option value="Cash">1. Cash</option><option value="Credit Card">2. Credit Card</option>
+<option value="Debit Card">3. Debit Card</option><option value="JazzCash / EasyPaisa">4. JazzCash / EasyPaisa</option>
+<option value="Raast ID">5. Raast ID</option><option value="Bank Transfer">6. Bank Transfer</option>
+<option value="Udhaar Khata">7. Udhaar Khata</option>
+</select></div><div></div></div>
+<div class="hint">Agar Paid total se kam hai, to baqi amount Khata mein add ho jayegi.</div>
+</div>
+<div class="bill-total"><span>Subtotal</span><span id="bill-subtotal" class="num">Rs. 0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Discount</span><span id="bill-discount-display" class="num">Rs. 0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Total</span><span id="bill-total-amount" class="num">Rs. 0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Balance</span><span id="bill-balance" class="num">Rs. 0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Change (Wapsi)</span><span id="bill-change" class="num">Rs. 0</span></div>
+<button class="primary" id="save-bill">💾 Save & Print Bill</button>
+<button class="secondary" id="save-bill-no-print">💾 Save Bill (No Print)</button>
+</div>
+<div class="card"><h2>Bill History</h2>
+<input type="text" id="bill-search" placeholder="Search by bill # or customer..." style="margin-bottom:10px">
+<button class="secondary" id="bulk-delete-bills">🗑️ Bulk Delete Bills</button>
+<div class="bills-list" id="bills-list"><div class="empty">No bills yet</div></div>
+</div>
+</section>
+
+<!-- PRODUCTION -->
+<section id="tab-production" style="display:none">
+<div class="card"><h2>📦 Today's Production</h2>
+<div class="hint" style="margin-top:0">Aaj kitna maal tayyar hua? Production stock mein automatic add hoti hai.</div>
+<label>Date</label><input type="date" id="p-date">
+<label>Item --- Type karein</label>
+<input type="text" id="p-item-search" placeholder="🔍 Item ka naam..." autocomplete="off">
+<div id="p-item-results" style="max-height:200px;overflow-y:auto;border:1px solid var(--rule);border-radius:4px;margin-top:6px;display:none;background:#fff"></div>
+<select id="p-item" style="position:absolute;left:-9999px"></select>
+<div class="row2">
+<div><label>Quantity Produced</label><input type="number" id="p-qty" placeholder="0" min="0"></div>
+<div><label>Batch Cost (total, optional)</label><input type="number" id="p-cost" placeholder="0" min="0"></div>
+</div>
+<label>Note (optional)</label><input type="text" id="p-note" placeholder="Morning batch">
+<button class="primary" id="save-production">Save Production</button></div>
+<div class="card"><h2>Production History</h2>
+<div class="row3" style="gap:8px;margin-bottom:10px">
+<button class="small" data-prange="today" style="flex:1">Today</button>
+<button class="small" data-prange="week" style="flex:1">This Week</button>
+<button class="small" data-prange="month" style="flex:1">This Month</button>
+<button class="small" data-prange="all" style="flex:1">All</button>
+</div>
+<div class="bill-total" style="border-top:none;padding-top:0;margin-top:0"><span>Total Production</span><span class="num" id="prod-total">0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem;font-weight:600"><span>Production Cost</span><span class="num" id="prod-cost">Rs. 0</span></div>
+<div class="entries-list" id="production-list" style="margin-top:12px"><div class="empty">No production entries</div></div>
+</div>
+</section>
+
+<!-- CUSTOMERS -->
+<section id="tab-customers" style="display:none">
+<div class="card"><h2>Add Customer / Khata</h2>
+<label>Customer Name</label><input type="text" id="c-name" placeholder="Customer name">
+<label>Phone (optional)</label><input type="tel" id="c-phone" placeholder="03xx-xxxxxxx">
+<label>Address (optional)</label><input type="text" id="c-address" placeholder="Address">
+<button class="primary" id="save-customer">Save Customer</button></div>
+<div class="card"><h2>Customer Balances</h2>
+<input type="text" id="customer-search" placeholder="Search customers..." style="margin-bottom:10px">
+<button class="secondary" id="bulk-delete-customers">🗑️ Bulk Delete Customers</button>
+<table><thead><tr><th>Customer</th><th>Phone</th><th>Due</th><th></th></tr></thead><tbody id="customers-table"></tbody></table>
+<div class="empty" id="customers-empty" style="display:none">No customers yet</div>
+</div>
+</section>
+
+<!-- EXPIRY -->
+<section id="tab-expiry" style="display:none">
+<div class="card"><h2>Expiry Alerts</h2>
+<div class="hint">Batches entered with expiry date appear here.</div>
+<div class="chip-row">
+<button class="chip active" data-exp="all">All</button>
+<button class="chip" data-exp="expired">Expired</button>
+<button class="chip" data-exp="near">Near Expiry</button>
+<button class="chip" data-exp="week">This Week</button>
+</div>
+<div id="expiry-list"><div class="empty">No expiry dates</div></div>
+</div>
+</section>
+
+<!-- EXPENSE -->
+<section id="tab-expense" style="display:none">
+<div class="card"><h2>💸 Add Expense</h2>
+<div class="hint" style="margin-top:0">Rozana kharche yahan likhein — salary, bijli, kiraya, maintenance wagera.</div>
+<label>Date</label><input type="date" id="x-date">
+<label>Expense Category</label>
+<select id="x-category">
+<option value="Staff Salary">Staff Salary</option>
+<option value="Shop Rent">Shop Rent</option>
+<option value="Electricity Bill">Electricity Bill</option>
+<option value="Gas Bill">Gas Bill</option>
+<option value="Shop Maintenance">Shop Maintenance</option>
+<option value="Transport / Delivery">Transport / Delivery</option>
+<option value="Packaging">Packaging</option>
+<option value="Tea / Food">Tea / Food</option>
+<option value="Government / Tax">Government / Tax</option>
+<option value="Miscellaneous">Miscellaneous</option>
+</select>
+<div class="row2">
+<div><label>Amount</label><input type="number" id="x-amount" placeholder="0" min="0"></div>
+<div><label>Paid To (optional)</label><input type="text" id="x-paidto" placeholder="e.g. Ali, WAPDA"></div>
+</div>
+<label>Note (optional)</label><input type="text" id="x-note" placeholder="Detail">
+<button class="primary" id="save-expense">Save Expense</button>
+</div>
+<div class="card"><h2>Expense History</h2>
+<div class="row3" style="gap:8px;margin-bottom:10px">
+<button class="small" data-xrange="today" style="flex:1">Today</button>
+<button class="small" data-xrange="week" style="flex:1">This Week</button>
+<button class="small" data-xrange="month" style="flex:1">This Month</button>
+<button class="small" data-xrange="all" style="flex:1">All</button>
+</div>
+<button class="secondary" id="bulk-delete-expenses">🗑️ Bulk Delete Expenses</button>
+<div class="bill-total" style="border-top:none;padding-top:0;margin-top:0"><span>Total Expense</span><span class="num" id="x-total">Rs. 0</span></div>
+<div class="entries-list" id="expense-list" style="margin-top:12px"><div class="empty">No expenses yet</div></div>
+</div>
+</section>
+
+<!-- REPORTS -->
+<section id="tab-report" style="display:none">
+<div class="card"><h2>Report Period</h2>
+<div class="row3" style="gap:8px">
+<button class="small" data-range="today" style="flex:1">Today</button>
+<button class="small" data-range="week" style="flex:1">This Week</button>
+<button class="small" data-range="month" style="flex:1">This Month</button>
+<button class="small" data-range="all" style="flex:1">All</button>
+</div>
+<div class="row2" style="margin-top:12px">
+<div><label>From</label><input type="date" id="r-from"></div>
+<div><label>To</label><input type="date" id="r-to"></div>
+</div>
+<div class="hint" id="r-range-label"></div>
+</div>
+<div class="card"><h2>⚠️ Unrefunded Bills (Archive Mein)</h2>
+<div class="hint" style="margin-top:0">Yeh bills archive mein hain kyunki inhone stock ko affect kiya. Inhe restore ya refund karein.</div>
+<div id="report-unrefunded" style="margin-top:12px"><div class="empty">✅ Koi unrefunded bill nahi</div></div>
+</div>
+<div class="card"><h2>Summary</h2>
+<div class="bill-total" style="border-top:none;padding-top:0;margin-top:0"><span>Total Sales</span><span class="num" id="r-total-sales">Rs. 0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem;font-weight:600"><span>Total Bills</span><span class="num" id="r-total-bills">0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem;font-weight:600"><span>Total Production</span><span class="num" id="r-total-prod">0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem;font-weight:600"><span>Estimated Profit</span><span class="num" id="r-profit">Rs. 0</span></div>
+</div>
+<div class="card"><h2>Category-wise Sales</h2>
+<table><thead><tr><th>Category</th><th>Sales</th><th>Profit</th></tr></thead><tbody id="report-cat-table"></tbody></table>
+</div>
+<div class="card"><h2>📊 Monthly Profit &amp; Loss</h2>
+<div class="bill-total" style="border-top:none;padding-top:0;margin-top:0"><span>Total Sales</span><span class="num" id="pl-sales">Rs. 0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Total Bills</span><span class="num" id="pl-bills">0</span></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Cost of Goods Sold</span><span class="num" id="pl-cogs">Rs. 0</span></div>
+<div class="bill-total" style="border-top:2px solid var(--rule);font-size:1rem;font-weight:700"><span>Gross Profit</span><span class="num" id="pl-gross">Rs. 0</span></div>
+<div style="margin-top:12px;font-weight:600;color:var(--brass);font-size:.9rem">Expenses:</div>
+<div id="pl-expense-breakdown" style="font-size:.85rem"></div>
+<div class="bill-total" style="border-top:1px dashed var(--rule);font-size:.95rem"><span>Total Expenses</span><span class="num" id="pl-exp-total">Rs. 0</span></div>
+<div class="bill-total" style="border-top:2px solid var(--red);font-size:1.15rem;font-weight:700"><span>NET PROFIT</span><span class="num" id="pl-net">Rs. 0</span></div>
+</div>
+<div class="card"><h2>Item Report</h2>
+<table><thead><tr><th>Item</th><th>Recv</th><th>Prod</th><th>Sold</th><th>Waste</th><th>Stock</th><th>Profit</th></tr></thead><tbody id="report-table"></tbody></table>
+<div class="empty" id="report-empty" style="display:none">No data</div>
+<button class="secondary" id="export-csv">📥 Export CSV</button>
+<button class="secondary" id="export-pdf">🖨️ Print / PDF</button>
+</div>
+</section>
+
+<!-- TRASH -->
+<section id="tab-trash" style="display:none">
+<div class="card">
+<h2>🗑️ Trash — Deleted Items</h2>
+<div class="hint" style="margin-top:0">Yahan wo sab deleted cheezein hain. Aap inhe <strong>Restore</strong> kar sakte hain ya <strong>Permanently Delete</strong> kar sakte hain.</div>
+<div class="chip-row" style="margin-top:12px">
+<button class="chip active" data-trash="items">Items (<span id="trash-cnt-items">0</span>)</button>
+<button class="chip" data-trash="bills">Bills (<span id="trash-cnt-bills">0</span>)</button>
+<button class="chip" data-trash="expenses">Expenses (<span id="trash-cnt-expenses">0</span>)</button>
+<button class="chip" data-trash="customers">Customers (<span id="trash-cnt-customers">0</span>)</button>
+<button class="chip" data-trash="production">Production (<span id="trash-cnt-production">0</span>)</button>
+<button class="chip" data-trash="entries">Entries (<span id="trash-cnt-entries">0</span>)</button>
+<button class="chip" data-trash="payments">Payments (<span id="trash-cnt-payments">0</span>)</button>
+</div>
+<div id="trash-list" style="margin-top:14px"><div class="empty">Trash khali hai</div></div>
+<div class="warn-box">⚠️ <strong>Restore</strong> se item wapas active list mein aa jayega. <strong>Permanently Delete</strong> se unrefunded bills ARCHIVE mein jayenge, baaki sab hamesha ke liye hat jayenge (code maangega).</div>
+</div>
+</section>
+
+<!-- ARCHIVE -->
+<section id="tab-archive" style="display:none">
+<div class="card">
+<h2>📦 Stock Archive — Unrefunded Bills</h2>
+<div class="hint" style="margin-top:0">Yeh wo bills hain jinka stock adjust nahi hua. Inhe <strong>Restore</strong> karein, <strong>Refund Now</strong> karein, ya <strong>Delete Forever</strong> karein.</div>
+<div id="archive-list" style="margin-top:14px"><div class="empty">📦 Archive khali hai</div></div>
+<div class="warn-box">⚠️ <strong>Restore</strong> se bill wapas active list mein aayega (stock adjust nahi hoga).<br><strong>Refund Now</strong> se stock wapas add hoga.<br><strong>Delete Forever</strong> se bill + entries hamesha ke liye delete hongi (stock adjust hoga).</div>
+</div>
+</section>
+
+<!-- SETTINGS -->
+<section id="tab-settings" style="display:none">
+<div class="card"><h2>Shop Settings</h2>
+<label>Shop Name</label><input type="text" id="s-name" placeholder="Ayyan Kitab Ghr N Photostate">
+<label>Address</label><input type="text" id="s-address" placeholder="Shop address">
+<label>Phone</label><input type="tel" id="s-phone" placeholder="03xx-xxxxxxx">
+<label>Shop Logo</label>
+<input type="file" id="s-logo" accept="image/*">
+<div class="hint">Logo upload karein (PNG/JPG, 500KB se kam). Yeh bill par print hoga.</div>
+<img id="logo-preview" style="display:none;max-width:120px;max-height:120px;margin-top:8px;border:1px solid var(--rule);border-radius:6px;padding:4px;background:#fff">
+<button class="secondary" id="remove-logo" style="display:none;margin-top:6px">🗑️ Remove Logo</button>
+<div class="row2">
+<div><label>Currency</label><input type="text" id="s-currency" placeholder="Rs." maxlength="5"></div>
+<div><label>Default Low Stock</label><input type="number" id="s-lowstock" placeholder="5" min="0"></div>
+</div>
+<label>Bill Footer Message</label><input type="text" id="s-footer" placeholder="Shukriya! Dobara tashreef laayen">
+<button class="primary" id="save-settings">Save Settings</button></div>
+<div class="card"><h2>🖨️ Printer Settings</h2>
+<label>Receipt Width</label><select id="s-printer">
+<option value="80">80mm (Standard Thermal)</option>
+<option value="58">58mm (Small Thermal)</option>
+<option value="a4">A4 Paper</option>
+</select>
+<button class="secondary" id="test-print">🖨️ Test Print</button>
+</div>
+<div class="card"><h2>Backup Reminder</h2>
+<label><input type="checkbox" id="s-reminder" style="width:auto;margin-left:6px"> Remind me every 7 days</label>
+<div class="hint" id="last-backup-label">Last backup: Never</div>
+<div class="warn-box">⚠️ Data sirf is device ki local disk mein mehfooz hai. Backup zaroor rakhein — browser data clear karne se data delete ho sakta hai.</div>
+</div>
+<div class="card"><h2>Backup & Restore</h2>
+<button class="secondary" id="backup-data">📤 Backup Data (JSON)</button>
+<button class="secondary" id="restore-data">📥 Restore Backup</button>
+<input type="file" id="restore-file" accept=".json" style="display:none">
+</div>
+<div class="card"><h2>🔑 Data Delete Code</h2>
+<div class="hint" style="margin-top:0">Yehi code Data Delete karne ke liye lagega. Waqt aane par yahan se change kar sakte hain.</div>
+<label>Purana Code</label><input type="password" id="old-code" inputmode="numeric" placeholder="Enter current code">
+<div class="row2">
+<div><label>Naya Code</label><input type="password" id="new-code" inputmode="numeric" placeholder="4-8 digits"></div>
+<div><label>Dobara Likhein</label><input type="password" id="new-code2" inputmode="numeric" placeholder="Confirm"></div>
+</div>
+<button class="primary" id="change-code-btn">💾 Save New Code</button>
+</div>
+<div class="card"><h2>About</h2><div class="hint"><strong>Ayyan Kitab Ghr N Photostate — v6.0 (Offline)</strong><br>100% Offline — koi internet zaroori nahi<br>Data sirf is device ki local disk mein mehfooz hai.<br>🗑️ <strong>Soft Delete + Trash System</strong><br>📦 <strong>Stock Archive</strong> — Unrefunded Bills<br>🔢 <strong>Bill Number Ledger</strong> — Dobara generate nahi honge</div></div>
+</section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+<div id="print-region"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+<div class="modal-box" id="modal-box">
+<h3 id="modal-title">Title</h3>
+<p id="modal-msg" style="display:none"></p>
+<div id="modal-fields"></div>
+<div class="modal-actions">
+<button class="cancel" id="modal-cancel">Cancel</button>
+<button class="ok" id="modal-ok">OK</button>
+</div>
+</div>
+</div>
+
+<script>
+// ============================================
+// 💾 100% OFFLINE — Sirf localStorage
+// ============================================
+const LOCAL_KEY = 'ayyan-kitab-ghar-data';
+const LOCAL_TIME_KEY = 'ayyan-kitab-ghar-time';
+
+let items=[],entries=[],bills=[],customers=[],payments=[],production=[],expenses=[],nextCode=1001;
+
+let deletedItems=[],deletedEntries=[],deletedBills=[],deletedCustomers=[],deletedPayments=[],deletedProduction=[],deletedExpenses=[];
+let archivedBills = [];
+let usedBillNumbers = [];
+
+let settings={
+  name:'Ayyan Kitab Ghr N Photostate',
+  address:'',
+  phone:'',
+  currency:'Rs.',
+  lowstock:5,
+  reminder:false,
+  lastBackup:null,
+  footer:'Shukriya! Dobara tashreef laayen',
+  printer:'80',
+  deleteCode:'6208',
+  logo:''
+};
+
+let currentBillLines=[];
+let currentExpiryFilter='all',currentItemFilterCat='';
+let currentExpenseRange='today';
+let currentTrashFilter='items';
+let tempLogoData='';
+
+const $=id=>document.getElementById(id);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2600)}
+
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+function fmtDate(s){if(!s)return '';const m=String(s).match(/^(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'-'+m[2]+'-'+m[1]:String(s)}
+
+function datePlus(days){const d=new Date();d.setDate(d.getDate()+days);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+function cur(){return settings.currency||'Rs.'}
+function money(n){return cur()+' '+Number(n||0).toLocaleString()}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+function stampRecord(record) {
+  return {...record, updatedAt: Date.now()};
+}
+
+// ============================================
+// 💾 LOCAL PERSISTENCE
+// ============================================
+function persistLocal(){
+  try{
+    localStorage.setItem(LOCAL_KEY, JSON.stringify({
+      items,entries,bills,customers,payments,production,expenses,nextCode,settings,
+      deletedItems,deletedEntries,deletedBills,deletedCustomers,deletedPayments,deletedProduction,deletedExpenses,
+      archivedBills, usedBillNumbers
+    }));
+    localStorage.setItem(LOCAL_TIME_KEY, Date.now().toString());
+  }catch(e){console.warn('Local save fail:',e)}
+}
+
+function saveData(){
+  persistLocal();
+}
+
+function loadData(){
+  try{
+    const p = JSON.parse(localStorage.getItem(LOCAL_KEY) || '{}');
+    items=p.items||[]; entries=p.entries||[]; bills=p.bills||[];
+    customers=p.customers||[]; payments=p.payments||[]; production=p.production||[];
+    expenses=p.expenses||[];
+    deletedItems=p.deletedItems||[]; deletedEntries=p.deletedEntries||[];
+    deletedBills=p.deletedBills||[]; deletedCustomers=p.deletedCustomers||[];
+    deletedPayments=p.deletedPayments||[]; deletedProduction=p.deletedProduction||[];
+    deletedExpenses=p.deletedExpenses||[];
+    archivedBills = p.archivedBills || [];
+    usedBillNumbers = p.usedBillNumbers || [];
+    nextCode = p.nextCode || 1001;
+    settings = Object.assign(settings, p.settings || {});
+    if(!settings.deleteCode) settings.deleteCode='6208';
+    if(!settings.name) settings.name='Ayyan Kitab Ghr N Photostate';
+  }catch(e){console.warn('Local data load fail:',e)}
+}
+
+// ============================================
+// 📊 STOCK & DUE
+// ============================================
+function findItem(id){ return items.find(x=>x.id===id) || deletedItems.find(x=>x.id===id); }
+function findCustomer(id){ return customers.find(x=>x.id===id) || deletedCustomers.find(x=>x.id===id); }
+
+function stockOf(id){
+  const i=items.find(x=>x.id===id);
+  if(!i)return 0;
+  let s=Number(i.opening)||0;
+  entries.filter(e=>e.itemId===id).forEach(e=>s+=(Number(e.received)||0)-(Number(e.sold)||0)-(Number(e.waste)||0));
+  production.filter(p=>p.itemId===id).forEach(p=>s+=Number(p.qty)||0);
+  return s;
+}
+
+function customerDue(id){
+  const activeDue=bills.filter(b=>b.customerId===id&&(b.status||'active')==='active').reduce((s,b)=>s+Number(b.balance||0),0);
+  const paid=payments.filter(p=>p.customerId===id&&Number(p.amount)>0).reduce((s,p)=>s+Number(p.amount||0),0);
+  return Math.max(0,activeDue-paid);
+}
+
+function nextBillNo(){
+  const allNumbers = [];
+  bills.forEach(b => { const n = parseInt(String(b.billNo).split('-').pop(), 10) || 0; if(n) allNumbers.push(n); });
+  deletedBills.forEach(b => { const n = parseInt(String(b.billNo).split('-').pop(), 10) || 0; if(n) allNumbers.push(n); });
+  archivedBills.forEach(b => { const n = parseInt(String(b.billNo).split('-').pop(), 10) || 0; if(n) allNumbers.push(n); });
+  usedBillNumbers.forEach(n => { const num = parseInt(n, 10) || 0; if(num) allNumbers.push(num); });
+  const maxNumber = allNumbers.length ? Math.max(...allNumbers) : 1000;
+  const newNumber = maxNumber + 1;
+  usedBillNumbers.push(newNumber);
+  return 'AK-' + newNumber;
+}
+
+function showTab(tab){
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  ['dashboard','entry','items','lowstock','bill','production','customers','expiry','expense','report','trash','archive','settings'].forEach(t=>{
+    const el=$('tab-'+t);
+    if(el) el.style.display=t===tab?'block':'none';
+  });
+  renderAll();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+
+// ============================================
+// 🗑️ SOFT DELETE
+// ============================================
+function softDelete(type, records){
+  const arr = getArr(type);
+  const deletedArr = getArr('deleted' + type.charAt(0).toUpperCase() + type.slice(1));
+  const ids = records.map(r=>r.id);
+  const deleted = arr.filter(r=>ids.includes(r.id)).map(r=>stampRecord({...r, deletedAt: Date.now()}));
+  setArr(type, arr.filter(r=>!ids.includes(r.id)));
+  deleted.forEach(d=>deletedArr.push(d));
+  return deleted.length;
+}
+
+function restoreFromTrash(type, record){
+  const deletedArr = getArr('deleted' + type.charAt(0).toUpperCase() + type.slice(1));
+  const arr = getArr(type);
+  const restored = {...record};
+  delete restored.deletedAt;
+  restored.restoredFromTrash = true;
+  restored.restoredAt = Date.now();
+  restored.updatedAt = Date.now();
+  setArr('deleted' + type.charAt(0).toUpperCase() + type.slice(1), deletedArr.filter(r=>r.id!==record.id));
+  arr.push(restored);
+}
+
+function permanentDelete(type, record){
+  if(type === 'bills' && record.unrefundedDelete && record.status !== 'refunded' && record.status !== 'void'){
+    const archivedRecord = stampRecord({
+      ...record, archivedAt: Date.now(), archiveReason: 'Unrefunded bill'
+    });
+    archivedBills.push(archivedRecord);
+    deletedBills = deletedBills.filter(r => r.id !== record.id);
+    return { archived: true };
+  }
+  const deletedArr = getArr('deleted' + type.charAt(0).toUpperCase() + type.slice(1));
+  setArr('deleted' + type.charAt(0).toUpperCase() + type.slice(1), deletedArr.filter(r=>r.id!==record.id));
+  return { archived: false };
+}
+
+async function softDeleteBill(bill){
+  const st = bill.status || 'active';
+  if(st === 'active'){
+    bill.unrefundedDelete = true;
+    bill.unrefundedDeleteAt = Date.now();
+    bill.updatedAt = Date.now();
+  }
+  softDelete('bills', [bill]);
+  return st === 'active';
+}
+
+function getArr(t){
+  return({items,entries,bills,customers,payments,production,expenses,
+    deletedItems,deletedEntries,deletedBills,deletedCustomers,deletedPayments,deletedProduction,deletedExpenses,
+    archivedBills})[t];
+}
+function setArr(t,v){
+  switch(t){
+    case'items':items=v;break;case'entries':entries=v;break;case'bills':bills=v;break;
+    case'customers':customers=v;break;case'payments':payments=v;break;
+    case'production':production=v;break;case'expenses':expenses=v;break;
+    case'deletedItems':deletedItems=v;break;case'deletedEntries':deletedEntries=v;break;
+    case'deletedBills':deletedBills=v;break;case'deletedCustomers':deletedCustomers=v;break;
+    case'deletedPayments':deletedPayments=v;break;case'deletedProduction':deletedProduction=v;break;
+    case'deletedExpenses':deletedExpenses=v;break;
+    case'archivedBills':archivedBills=v;break;
+  }
+}
+
+// ============================================
+// 📋 MODAL SYSTEM
+// ============================================
+let modalResolve=null;
+
+function openModal({title,msg,fields=[],okText='OK',cancelText='Cancel',large=false}){
+  return new Promise(res=>{
+    modalResolve=res;
+    $('modal-title').textContent=title||'';
+    $('modal-msg').textContent=msg||'';
+    $('modal-msg').style.display=msg?'block':'none';
+    const box=$('modal-box');
+    if(box) box.classList.toggle('large', large);
+    const fc=$('modal-fields');fc.innerHTML='';
+    fields.forEach((f,idx)=>{
+      if(f.label){
+        const l=document.createElement('label');
+        l.textContent=f.label;
+        fc.appendChild(l)
+      }
+      let inp;
+      if(f.options){
+        inp=document.createElement('select');
+        f.options.forEach(o=>{
+          const op=document.createElement('option');
+          op.value=o.value;
+          op.textContent=o.label;
+          if(o.value==f.value)op.selected=true;
+          inp.appendChild(op)
+        })
+      } else {
+        inp=document.createElement('input');
+        inp.type=f.type||'text';
+        inp.placeholder=f.placeholder||'';
+        inp.value=f.value!=null?f.value:'';
+        if(f.type==='number')inp.min=0;
+      }
+      inp.dataset.idx=idx;
+      fc.appendChild(inp);
+    });
+    $('modal-ok').textContent=okText;
+    $('modal-cancel').textContent=cancelText;
+    $('modal-overlay').classList.add('open');
+    const first=fc.querySelector('input,select');
+    if(first)setTimeout(()=>first.focus(),100);
+  });
+}
+
+function closeModal(val){
+  $('modal-overlay').classList.remove('open');
+  if(modalResolve){modalResolve(val);modalResolve=null}
+}
+
+$('modal-ok').onclick=()=>{
+  const inputs=[...$('modal-fields').querySelectorAll('input,select')];
+  if(inputs.length===0){closeModal(true);return}
+  closeModal(inputs.map(i=>i.value))
+};
+$('modal-cancel').onclick=()=>closeModal(null);
+$('modal-overlay').onclick=e=>{if(e.target===$('modal-overlay'))closeModal(null)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('modal-overlay').classList.contains('open'))closeModal(null)});
+
+async function confirmBox(title,msg,okText='OK'){return await openModal({title,msg,okText})===true}
+async function promptBox(title,fields,okText='Save'){return await openModal({title,fields,okText})}
+
+// ============================================
+// 📊 DASHBOARD
+// ============================================
+function renderDashboard(){
+  const d=today(),bs=bills.filter(b=>b.date===d&&(b.status||'active')==='active'),sales=bs.reduce((s,b)=>s+Number(b.total||0),0);
+  const prodToday=production.filter(p=>p.date===d),prodQty=prodToday.reduce((s,p)=>s+Number(p.qty||0),0);
+  let profitToday=0;
+  bs.forEach(b=>(b.lines||[]).forEach(l=>{
+    const i=findItem(l.itemId);
+    if(i){
+      const gross=Number(l.qty)*(Number(l.unitPrice!=null?l.unitPrice:i.price)||0);
+      const share=b.subtotal?gross/Number(b.subtotal):0;
+      const revenue=gross-(Number(b.discount||0)*share);
+      profitToday+=revenue-(Number(l.qty)*Number(i.cost||0));
+    }
+  }));
+  const expenseToday=expenses.filter(x=>x.date===d).reduce((s,x)=>s+Number(x.amount||0),0);
+  const netProfitToday=profitToday-expenseToday;
+  $('d-sales').textContent=money(sales);$('d-bills').textContent=bs.length;$('d-profit').textContent=money(profitToday);$('d-production').textContent=prodQty;$('d-items').textContent=items.length;
+  $('d-expense').textContent=money(expenseToday);
+  $('d-netprofit').textContent=money(netProfitToday);
+  $('stat-netprofit').className='stat'+(netProfitToday<0?' danger':'');
+  const monthPrefix=d.slice(0,7);
+  const monthExpense=expenses.filter(x=>String(x.date||'').startsWith(monthPrefix)).reduce((s,x)=>s+Number(x.amount||0),0);
+  $('d-monthexpense').textContent=money(monthExpense);
+  const lowCount=items.filter(i=>Number(i.lowStock)>0&&stockOf(i.id)<=Number(i.lowStock)).length;
+  $('d-low').textContent=lowCount;$('stat-low').className='stat'+(lowCount?' danger':'');
+  const near=datePlus(3);
+  const expCount=entries.filter(e=>e.expiry&&e.expiry<=near&&Number(e.received)>0).length;
+  $('d-expiry').textContent=expCount;$('stat-expiry').className='stat'+(expCount?' warn':'');
+  const due=customers.reduce((s,c)=>s+customerDue(c.id),0);
+  $('d-due').textContent=money(due);$('stat-due').className='stat'+(due?' warn':'');
+  $('d-archive').textContent = archivedBills.length;
+  $('stat-archive').className='stat'+(archivedBills.length?' warn':'');
+  const archBadge = $('nav-archive-badge');
+  if(archBadge){
+    archBadge.textContent = archivedBills.length;
+    archBadge.style.display = archivedBills.length ? 'inline-block' : 'none';
+  }
+  const rb=[...bills].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
+  $('dash-bills').innerHTML=rb.length?rb.map(b=>`<div class="brow"><div>Bill #${b.billNo} --- ${esc(b.customer||'Walk-in')}<div class="meta">${fmtDate(b.date)}</div></div><div class="num">${money(b.total)}</div></div>`).join(''):'<div class="empty">No bills yet</div>';
+  const lowItems=items.filter(i=>Number(i.lowStock)>0&&stockOf(i.id)<=Number(i.lowStock));
+  $('dash-low').innerHTML=lowItems.length?lowItems.map(i=>`<div class="erow"><div>${esc(i.name)}<div class="meta">Alert at ${i.lowStock}</div></div><span class="pill low">Stock: ${stockOf(i.id)}</span></div>`).join(''):'<div class="empty">All items are in stock</div>';
+}
+
+// ============================================
+// 📦 ITEMS
+// ============================================
+function renderItemsTable(){
+  const tb=$('items-table');tb.innerHTML='';
+  const q=($('item-search').value||'').toLowerCase().trim(),cat=currentItemFilterCat;
+  const filtered=items.filter(i=>(!q||i.name.toLowerCase().includes(q)||String(i.code).includes(q))&&(!cat||i.category===cat));
+  $('items-empty').style.display=filtered.length?'none':'block';
+  filtered.forEach(i=>{
+    const st=stockOf(i.id),low=Number(i.lowStock)>0&&st<=Number(i.lowStock),tr=document.createElement('tr');
+    tr.innerHTML=`<td class="item-name">${esc(i.name)}${i.type==='production'?' <span class="pill info">P</span>':''}${i.restoredFromTrash?' <span class="pill restored">🔄</span>':''}</td><td>${esc(i.category||'-')}</td><td class="num">${i.cost||0}</td><td class="num">${i.price||0}</td><td class="num">${low?'<span class="pill low">'+st+'</span>':st}</td><td class="code-cell">${i.code}</td><td><button class="small" data-edit="${i.id}">Edit</button> <button class="small blue" data-label="${i.id}">Label</button> <button class="small danger" data-softdel="${i.id}">🗑️</button></td>`;
+    tb.appendChild(tr)
+  });
+  tb.querySelectorAll('[data-softdel]').forEach(b=>b.onclick=async()=>{
+    const id=b.dataset.softdel;
+    const item=items.find(x=>x.id===id);
+    if(!item)return;
+    if(!await confirmBox('🗑️ Delete Item?','Item trash mein chala jayega.','Delete'))return;
+    softDelete('items',[item]);
+    saveData();renderAll();toast('🗑️ Item trash mein bheja');
+  });
+  tb.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editItem(b.dataset.edit));
+  tb.querySelectorAll('[data-label]').forEach(b=>b.onclick=()=>printLabel(b.dataset.label));
+}
+
+$('item-search').oninput=renderItemsTable;
+$('item-filter-cat').onchange=()=>{currentItemFilterCat=$('item-filter-cat').value;renderItemsTable()};
+
+async function editItem(id){
+  const i=items.find(x=>x.id===id);if(!i)return;
+  const r=await promptBox('Edit Item',[{label:'Name',value:i.name},{label:'Selling price',value:i.price,type:'number'},{label:'Purchase price',value:i.cost,type:'number'},{label:'Low stock alert',value:i.lowStock,type:'number'}],'Update');
+  if(!r)return;
+  i.name=(r[0]||'').trim()||i.name;
+  i.price=Number(r[1])||0;
+  i.cost=Number(r[2])||0;
+  i.lowStock=Number(r[3])||0;
+  i.updatedAt = Date.now();
+  saveData();renderAll();toast('Item updated')
+}
+
+function handleCategoryChange(){
+  const sel = $('i-category');
+  const customInput = $('i-category-custom');
+  if(!sel || !customInput) return;
+  if(sel.value === 'Other'){
+    customInput.style.display = 'block';
+    customInput.focus();
+  } else {
+    customInput.style.display = 'none';
+    customInput.value = '';
+  }
+}
+
+$('save-item').onclick=()=>{
+  const name=$('i-name').value.trim();
+  if(!name){toast('Enter item name');return}
+  let low=Number($('i-lowstock').value)||0;
+  if(!low&&settings.lowstock)low=Number(settings.lowstock)||0;
+  let barcode=$('i-barcode').value.trim();
+  if(!barcode){ while(items.some(x=>String(x.code)===String(nextCode)))nextCode++; barcode=String(nextCode++); }
+  else {
+    const existing=items.find(x=>String(x.code)===barcode);
+    if(existing){ toast('⚠️ Yeh code pehle se "'+existing.name+'" ke liye use ho raha hai!'); return; }
+  }
+
+  let cat = $('i-category').value;
+  if(cat === 'Other'){
+    const customCat = $('i-category-custom').value.trim();
+    if(customCat){ cat = customCat; }
+  }
+
+  const newItem = stampRecord({
+    id:uid(), name, category:cat,
+    unit:$('i-unit').value.trim(),
+    opening:Number($('i-opening').value)||0,
+    cost:Number($('i-cost').value)||0,
+    price:Number($('i-price').value)||0,
+    lowStock:low, code:barcode, type:$('i-type').value
+  });
+
+  items.push(newItem);
+
+  ['i-name','i-unit','i-opening','i-cost','i-price','i-lowstock','i-barcode','i-category-custom'].forEach(x=>{const el=$(x);if(el)el.value=''});
+  $('i-category').value='Books';
+  $('i-category-custom').style.display='none';
+
+  const m=$('i-barcode-msg');if(m)m.textContent='';
+  saveData();renderAll();toast('✅ Item saved (Code: '+barcode+')');
+};
+
+// ============================================
+// 📥 STOCK ENTRIES
+// ============================================
+function renderEntries(){
+  const box=$('entries-list'),r=[...entries].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,15);
+  if(!r.length){box.innerHTML='<div class="empty">No entries yet</div>';return}
+  box.innerHTML=r.map(e=>{
+    const i=findItem(e.itemId);
+    return `<div class="erow">
+      <div>${esc(i?i.name:'Deleted item')}${i&&i.deletedAt?' <span class="pill deleted">🗑️</span>':''}
+        <div class="meta">${fmtDate(e.date)}${e.expiry?' · Expiry: '+fmtDate(e.expiry):''}${e.note?' · '+esc(e.note):''}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="num">${e.received?'+ '+e.received+' In ':''}${e.sold?'− '+e.sold+' Sale ':''}${e.waste?'− '+e.waste+' Waste':''}</span>
+        <button class="small danger" data-softdelentry="${e.id}">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  box.querySelectorAll('[data-softdelentry]').forEach(b=>b.onclick=async()=>{
+    const id = b.dataset.softdelentry;
+    const entry = entries.find(e=>e.id===id);
+    if(!entry) return;
+    if(!await confirmBox('🗑️ Delete Entry?','Entry trash mein chali jayegi.','Delete')) return;
+    softDelete('entries', [entry]);
+    saveData();renderAll();
+    toast('🗑️ Entry trash mein');
+  });
+}
+
+$('save-entry').onclick=()=>{
+  const date=$('e-date').value,id=$('e-item').value,received=Number($('e-received').value)||0,sold=Number($('e-sold').value)||0,waste=Number($('e-waste').value)||0;
+  if(!date||!id){toast('Select date and item');return}
+  if(!received&&!sold&&!waste){toast('Enter Received, Sale or Waste');return}
+  if(sold>stockOf(id)){toast('Sale is greater than stock');return}
+  const newEntry = stampRecord({
+    id:uid(),date,itemId:id,sold,received,waste,
+    expiry:received&&$('e-expiry').value?$('e-expiry').value:null,
+    note:$('e-note').value.trim()
+  });
+  entries.push(newEntry);
+  ['e-sold','e-received','e-expiry','e-waste','e-note'].forEach(x=>$(x).value='');
+  $('e-item-search').value='';
+  saveData();renderAll();toast('Stock entry saved')
+};
+
+// ============================================
+// 🛒 BILLING
+// ============================================
+function billTotal(){return currentBillLines.reduce((s,l)=>{const i=items.find(x=>x.id===l.itemId);return s+(i?Number(i.price)*Number(l.qty):0)},0)}
+
+function renderBillLines(){
+  const box=$('bill-lines');
+  if(!currentBillLines.length){
+    box.innerHTML='<div class="empty">No items added</div>';
+    ['bill-subtotal','bill-discount-display','bill-total-amount','bill-balance','bill-change'].forEach(id=>$(id).textContent=money(0));
+    return;
+  }
+  box.innerHTML=currentBillLines.map((l,n)=>{
+    const i=items.find(x=>x.id===l.itemId);
+    return `<div class="bill-line-row">
+      <span>${esc(i?i.name:'Item')}</span>
+      <span style="display:flex;align-items:center;gap:6px">
+        <input type="number" min="1" value="${l.qty}" data-qty="${n}" style="width:64px;padding:4px 6px;text-align:center;border:1px solid var(--rule);border-radius:4px;font-family:inherit;font-size:.9rem">
+        <span class="num">${money(i?Number(i.price)*Number(l.qty):0)}</span>
+        <button class="del" data-rm="${n}">✕</button>
+      </span>
+    </div>`;
+  }).join('');
+
+  box.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{
+    currentBillLines.splice(Number(b.dataset.rm),1);
+    renderBillLines();
+  });
+
+  box.querySelectorAll('[data-qty]').forEach(inp=>{
+    inp.onchange=()=>{
+      const idx=Number(inp.dataset.qty);
+      const newQty=Number(inp.value)||1;
+      if(newQty<=0){inp.value=1;return}
+      const line=currentBillLines[idx];
+      const available=stockOf(line.itemId);
+      if(newQty>available){
+        toast('Not enough stock. Available: '+available);
+        inp.value=line.qty;
+        return;
+      }
+      line.qty=newQty;
+      renderBillLines();
+    };
+    inp.onkeydown=(e)=>{ if(e.key==='Enter'){ e.preventDefault(); inp.blur(); } };
+  });
+
+  const sub=billTotal(),disc=Number($('b-discount').value)||0,total=Math.max(0,sub-disc),paid=Number($('b-paid').value)||0;
+  $('bill-subtotal').textContent=money(sub);
+  $('bill-discount-display').textContent='-'+money(disc);
+  $('bill-total-amount').textContent=money(total);
+  $('bill-balance').textContent=money(Math.max(0,total-paid));
+  $('bill-change').textContent=money(Math.max(0,paid-total));
+}
+
+$('b-add-line').onclick=()=>{
+  const id=$('b-item').value,q=Number($('b-qty').value)||0;
+  if(!id||q<=0){toast('Select item and quantity');return}
+  const e=currentBillLines.find(l=>l.itemId===id);
+  const already=e?Number(e.qty)||0:0;
+  if(already+q>stockOf(id)){toast('Not enough stock. Available: '+Math.max(0,stockOf(id)-already));return}
+  if(e)e.qty+=q;
+  else currentBillLines.push({itemId:id,qty:q,unitPrice:Number((items.find(x=>x.id===id)||{}).price)||0});
+  $('b-qty').value=1;
+  $('b-item-search').value='';
+  $('b-item').value='';
+  renderBillLines();
+};
+
+$('b-discount').oninput=renderBillLines;
+$('b-paid').oninput=renderBillLines;
+
+async function saveBill(doPrint){
+  if(!currentBillLines.length){toast('Add items first');return}
+  const subtotal=billTotal(),discount=Number($('b-discount').value)||0,total=Math.max(0,subtotal-discount),received=Number($('b-paid').value)||0,paid=Math.min(received,total),balance=total-paid,change=Math.max(0,received-total);
+  let customerId=$('b-customer').value;
+  const newName=$('b-new-customer').value.trim();
+  if(newName){
+    const c = stampRecord({id:uid(),name:newName,phone:'',address:''});
+    customers.push(c);
+    customerId=c.id;
+  }
+  if(balance>0&&!customerId){toast('Select customer for unpaid balance');return}
+  const date=today(),method=$('b-method').value;
+  for(const l of currentBillLines){
+    if(Number(l.qty)>stockOf(l.itemId)){
+      toast('Stock changed. Please check the bill again.');
+      return;
+    }
+  }
+  const bill = stampRecord({
+    id:uid(),billNo:nextBillNo(),date,customerId,
+    customer:customerId?(customers.find(c=>c.id===customerId)||{}).name:'Walk-in Customer',
+    lines:currentBillLines.map(l=>({...l,unitPrice:Number(l.unitPrice||((items.find(x=>x.id===l.itemId)||{}).price)||0)})),
+    subtotal,discount,total,paid,received,change,balance,method,status:'active'
+  });
+  bills.push(bill);
+
+  currentBillLines.forEach(l=>{
+    const entry = stampRecord({
+      id:uid(),date,itemId:l.itemId,sold:l.qty,received:0,waste:0,note:'Bill #'+bill.billNo
+    });
+    entries.push(entry);
+  });
+
+  saveData();
+  if(doPrint)printInvoice(bill);
+  currentBillLines=[];
+  $('b-new-customer').value='';
+  $('b-discount').value=0;
+  $('b-paid').value=0;
+  $('b-item-search').value='';
+  renderAll();
+  toast('Bill #'+bill.billNo+' saved')
+}
+
+$('save-bill').onclick=()=>saveBill(true);
+$('save-bill-no-print').onclick=()=>saveBill(false);
+
+// ============================================
+// 📜 BILL HISTORY
+// ============================================
+function renderBills(){
+  const box=$('bills-list'),q=($('bill-search').value||'').toLowerCase().trim();
+  const filtered=bills.filter(b=>!q||String(b.billNo).toLowerCase().includes(q)||(b.customer||'').toLowerCase().includes(q));
+  const r=[...filtered].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,30);
+  if(!r.length){box.innerHTML='<div class="empty">No bills found</div>';return}
+  box.innerHTML=r.map(b=>{
+    const st=b.status||'active';
+    let stBadge='',rowClass='';
+    if(st==='refunded'){ stBadge='<span class="pill warn">🟡 REFUNDED</span> '; rowClass='bill-row-refunded'; }
+    else if(st==='void'){ stBadge='<span class="pill low">🔴 VOID</span> '; rowClass='bill-row-void'; }
+    else if(st==='exchanged'){ stBadge='<span class="pill info">🔵 EXCHANGED</span> '; rowClass='bill-row-exchanged'; }
+    else { stBadge='<span class="pill ok">🟢 ACTIVE</span> '; rowClass='bill-row-active'; }
+    const restoredBadge = b.restoredFromTrash ? '<span class="pill restored">🔄 RESTORED</span> ' : '';
+    return `<div class="brow ${rowClass}">
+      <div>${stBadge}${restoredBadge}Bill #${b.billNo} --- ${esc(b.customer||'Walk-in')}
+        <div class="meta">${fmtDate(b.date)}${b.method?' · '+b.method:''}${b.balance?' · Balance '+money(b.balance):''}${b.change?' · Change '+money(b.change):''}</div>
+      </div>
+      <div style="text-align:left">
+        <div class="num" style="font-weight:600">${money(b.total)}</div>
+        <button class="small" data-re="${b.id}">🖨️</button>
+        ${st==='active'?` <button class="small warn" data-refund="${b.id}">↩️</button> <button class="small blue" data-exchange="${b.id}">🔄</button> <button class="small" data-void="${b.id}">🚫</button>`:''}
+        <button class="small danger" data-softdelbill="${b.id}">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+  
+  box.querySelectorAll('[data-re]').forEach(x=>x.onclick=()=>printInvoice(bills.find(b=>b.id===x.dataset.re)));
+  box.querySelectorAll('[data-refund]').forEach(x=>x.onclick=()=>refundBill(x.dataset.refund));
+  box.querySelectorAll('[data-exchange]').forEach(x=>x.onclick=()=>exchangeBill(x.dataset.exchange));
+  box.querySelectorAll('[data-void]').forEach(x=>x.onclick=()=>voidBill(x.dataset.void));
+  box.querySelectorAll('[data-softdelbill]').forEach(x=>x.onclick=async()=>{
+    const b=bills.find(z=>z.id===x.dataset.softdelbill);
+    if(!b)return;
+    const st = b.status || 'active';
+    let msg = 'Bill trash mein chala jayega.';
+    if(st === 'active'){ msg += '\n\n⚠️ WARNING: Yeh bill refund nahi hua. Stock adjust NAHI hoga.'; }
+    if(!await confirmBox('🗑️ Delete Bill #'+b.billNo+'?', msg, 'Delete'))return;
+    const wasUnrefunded = await softDeleteBill(b);
+    saveData();renderAll();
+    if(wasUnrefunded){ toast('⚠️ Bill trash mein — Stock adjust nahi hua!'); }
+    else { toast('🗑️ Bill trash mein bheja'); }
+  });
+}
+
+$('bill-search').oninput=renderBills;
+
+async function refundBill(id){
+  const b=bills.find(x=>x.id===id);if(!b)return;
+  if(!await confirmBox('Refund Bill #'+b.billNo+'?','Poora bill wapas. Stock add hogi.','Refund'))return;
+  const date=today();
+  (b.lines||[]).forEach(l=>{
+    const entry = stampRecord({id:uid(),date,itemId:l.itemId,sold:0,received:Number(l.qty)||0,waste:0,note:'Refund Bill #'+b.billNo});
+    entries.push(entry);
+  });
+  b.status='refunded';
+  b.refundDate=date;
+  b.updatedAt = Date.now();
+  saveData();renderAll();toast('Bill #'+b.billNo+' refunded')
+}
+
+async function voidBill(id){
+  const b=bills.find(x=>x.id===id);if(!b)return;
+  if((b.status||'active')!=='active'){toast('This bill is already closed');return}
+  if(!await confirmBox('Cancel Bill #'+b.billNo+'?','Bill cancel hoga aur sold stock wapas add hogi.','Cancel'))return;
+  const date=today();
+  (b.lines||[]).forEach(l=>{
+    const entry = stampRecord({id:uid(),date,itemId:l.itemId,sold:0,received:Number(l.qty)||0,waste:0,note:'Void Bill #'+b.billNo});
+    entries.push(entry);
+  });
+  b.status='void';
+  b.voidDate=date;
+  b.updatedAt = Date.now();
+  saveData();renderAll();toast('Bill #'+b.billNo+' cancelled')
+}
+
+async function exchangeBill(id){
+  const b=bills.find(x=>x.id===id);if(!b)return;
+  if(!await confirmBox('Exchange Bill #'+b.billNo+'?','Purana bill void hoga. Naya bill banao.','OK'))return;
+  (b.lines||[]).forEach(l=>{
+    const entry = stampRecord({id:uid(),date:today(),itemId:l.itemId,sold:0,received:Number(l.qty)||0,waste:0,note:'Exchange-out Bill #'+b.billNo});
+    entries.push(entry);
+  });
+  b.status='exchanged';
+  b.exchangeDate=today();
+  b.updatedAt = Date.now();
+  saveData();renderAll();
+  showTab('bill');
+  toast('Naya bill banayein')
+}
+
+// ============================================
+// 📦 PRODUCTION
+// ============================================
+function renderProduction(){
+  const list=$('production-list');
+  const activeChip=document.querySelector('[data-prange].active');
+  const range=activeChip?activeChip.dataset.prange:'today';
+  const d=new Date(),to=today();let from='';
+  if(range==='today')from=to;
+  else if(range==='week'){d.setDate(d.getDate()-d.getDay());from=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  else if(range==='month')from=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-01';
+  const filtered=production.filter(p=>(!from||p.date>=from)&&p.date<=to);
+  $('prod-total').textContent=filtered.reduce((s,p)=>s+Number(p.qty||0),0);
+  $('prod-cost').textContent=money(filtered.reduce((s,p)=>s+Number(p.cost||0),0));
+  const r=[...filtered].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,20);
+  if(!r.length){list.innerHTML='<div class="empty">No production entries</div>';return}
+  list.innerHTML=r.map(p=>{const i=findItem(p.itemId);return `<div class="erow"><div>${esc(i?i.name:'Deleted')} --- ${p.qty} ${i&&i.unit?esc(i.unit):''}<div class="meta">${fmtDate(p.date)}${p.note?' · '+esc(p.note):''}${p.cost?' · Cost '+money(p.cost):''}</div></div><button class="small danger" data-softdelprod="${p.id}">🗑️</button></div>`}).join('');
+  list.querySelectorAll('[data-softdelprod]').forEach(b=>b.onclick=async()=>{
+    const p=production.find(x=>x.id===b.dataset.softdelprod);
+    if(!p)return;
+    if(!await confirmBox('🗑️ Delete Production?','Production trash mein chala jayega.','Delete'))return;
+    softDelete('production',[p]);
+    saveData();renderAll();toast('🗑️ Production trash mein');
+  });
+}
+
+document.querySelectorAll('[data-prange]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-prange]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProduction()});
+
+$('save-production').onclick=()=>{
+  const date=$('p-date').value,id=$('p-item').value,qty=Number($('p-qty').value)||0;
+  if(!date||!id){toast('Select date and item');return}
+  if(qty<=0){toast('Enter quantity');return}
+  const newProd = stampRecord({
+    id:uid(),date,itemId:id,qty,
+    cost:Number($('p-cost').value)||0,
+    note:$('p-note').value.trim()
+  });
+  production.push(newProd);
+  ['p-qty','p-cost','p-note'].forEach(x=>$(x).value='');
+  $('p-item-search').value='';
+  saveData();renderAll();toast('Production saved')
+};
+
+// ============================================
+// 👤 CUSTOMERS
+// ============================================
+$('save-customer').onclick=()=>{
+  const n=$('c-name').value.trim();
+  if(!n){toast('Enter name');return}
+  const newCust = stampRecord({
+    id:uid(),name:n,
+    phone:$('c-phone').value.trim(),
+    address:$('c-address').value.trim()
+  });
+  customers.push(newCust);
+  $('c-name').value='';$('c-phone').value='';$('c-address').value='';
+  saveData();renderAll();toast('Customer saved')
+};
+
+function renderCustomers(){
+  const tb=$('customers-table');tb.innerHTML='';
+  const q=($('customer-search').value||'').toLowerCase().trim();
+  const filtered=customers.filter(c=>!q||c.name.toLowerCase().includes(q)||(c.phone||'').includes(q));
+  $('customers-empty').style.display=filtered.length?'none':'block';
+  filtered.forEach(c=>{
+    const d=customerDue(c.id),tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(c.name)}${c.restoredFromTrash?' <span class="pill restored">🔄</span>':''}</td><td>${esc(c.phone||'-')}</td><td class="num"><span class="pill ${d?'low':'ok'}">${money(d)}</span></td><td>${d?'<button class="small" data-pay="'+c.id+'">💰 Pay</button>':''} <button class="small danger" data-softdelcust="${c.id}">🗑️</button></td>`;
+    tb.appendChild(tr)
+  });
+  tb.querySelectorAll('[data-pay]').forEach(b=>b.onclick=async()=>{
+    const c=customers.find(x=>x.id===b.dataset.pay);
+    const r=await promptBox('Payment from '+c.name,[{label:'Amount',type:'number',value:customerDue(c.id)},{label:'Note',placeholder:'Cash received'}],'Save');
+    if(!r)return;
+    const a=Number(r[0])||0;
+    if(a>0){
+      const newPay = stampRecord({id:uid(),customerId:b.dataset.pay,amount:a,date:today(),note:(r[1]||'').trim()});
+      payments.push(newPay);
+      saveData();renderAll();toast('Payment saved')
+    }
+  });
+  tb.querySelectorAll('[data-softdelcust]').forEach(b=>b.onclick=async()=>{
+    const c=customers.find(x=>x.id===b.dataset.softdelcust);
+    if(!c)return;
+    if(!await confirmBox('🗑️ Delete Customer?','Customer trash mein chala jayega.','Delete'))return;
+    softDelete('customers',[c]);
+    saveData();renderAll();toast('🗑️ Customer trash mein');
+  });
+}
+
+$('customer-search').oninput=renderCustomers;
+
+// ============================================
+// ⏰ EXPIRY
+// ============================================
+function renderExpiry(){
+  const box=$('expiry-list'),todayS=today(),near=datePlus(3),week=datePlus(7);
+  let r=entries.filter(e=>e.expiry&&Number(e.received)>0).sort((a,b)=>a.expiry.localeCompare(b.expiry));
+  if(currentExpiryFilter==='expired')r=r.filter(e=>e.expiry<todayS);
+  else if(currentExpiryFilter==='near')r=r.filter(e=>e.expiry>=todayS&&e.expiry<=near);
+  else if(currentExpiryFilter==='week')r=r.filter(e=>e.expiry>=todayS&&e.expiry<=week);
+  if(!r.length){box.innerHTML='<div class="empty">No expiry items</div>';return}
+  box.innerHTML=r.map(e=>{
+    const i=findItem(e.itemId);let cls='ok',lab='OK';
+    if(e.expiry<todayS){cls='low';lab='Expired'}
+    else if(e.expiry<=near){cls='low';lab='Near Expiry'}
+    else if(e.expiry<=week){cls='info';lab='This Week'}
+    return `<div class="erow"><div>${esc(i?i.name:'Deleted')} --- ${e.received}<div class="meta">Expiry: ${fmtDate(e.expiry)}</div></div><span class="pill ${cls}">${lab}</span></div>`
+  }).join('')
+}
+
+document.querySelectorAll('[data-exp]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-exp]').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentExpiryFilter=b.dataset.exp;renderExpiry()});
+
+// ============================================
+// 💸 EXPENSES
+// ============================================
+function renderExpenses(){
+  const list=$('expense-list');
+  const activeChip=document.querySelector('[data-xrange].active');
+  const range=activeChip?activeChip.dataset.xrange:'today';
+  const d=new Date(),to=today();let from='';
+  if(range==='today')from=to;
+  else if(range==='week'){d.setDate(d.getDate()-d.getDay());from=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  else if(range==='month'){from=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-01'}
+  const filtered=expenses.filter(x=>(!from||x.date>=from)&&x.date<=to);
+  $('x-total').textContent=money(filtered.reduce((s,x)=>s+Number(x.amount||0),0));
+  const r=[...filtered].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,30);
+  if(!r.length){list.innerHTML='<div class="empty">No expenses yet</div>';return}
+  list.innerHTML=r.map(x=>`<div class="erow"><div>${esc(x.category||'Expense')} --- ${money(x.amount)}<div class="meta">${fmtDate(x.date)}${x.paidTo?' · '+esc(x.paidTo):''}${x.note?' · '+esc(x.note):''}</div></div><button class="small danger" data-softdelexp="${x.id}">🗑️</button></div>`).join('');
+  list.querySelectorAll('[data-softdelexp]').forEach(b=>b.onclick=async()=>{
+    const x=expenses.find(z=>z.id===b.dataset.softdelexp);
+    if(!x)return;
+    if(!await confirmBox('🗑️ Delete Expense?','Expense trash mein chala jayega.','Delete'))return;
+    softDelete('expenses',[x]);
+    saveData();renderAll();toast('🗑️ Expense trash mein');
+  });
+}
+
+document.querySelectorAll('[data-xrange]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-xrange]').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentExpenseRange=b.dataset.xrange;renderExpenses()});
+
+$('save-expense').onclick=()=>{
+  const date=$('x-date').value,category=$('x-category').value,amount=Number($('x-amount').value)||0;
+  if(!date){toast('Select date');return}
+  if(amount<=0){toast('Enter amount');return}
+  const newExp = stampRecord({
+    id:uid(),date,category,amount,
+    paidTo:$('x-paidto').value.trim(),
+    note:$('x-note').value.trim()
+  });
+  expenses.push(newExp);
+  $('x-amount').value='';
+  $('x-paidto').value='';
+  $('x-note').value='';
+  saveData();renderAll();toast('✅ Expense saved');
+};
+
+// ============================================
+// 📊 REPORTS
+// ============================================
+function setRange(k){
+  const d=new Date(),to=today();let from='',lab='All data';
+  if(k==='today'){from=to;lab='Today'}
+  else if(k==='week'){d.setDate(d.getDate()-d.getDay());from=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');lab='This week'}
+  else if(k==='month'){from=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-01';lab='This month'}
+  $('r-from').value=from;
+  $('r-to').value=k==='all'?'':to;
+  $('r-range-label').textContent=lab;
+  renderReport()
+}
+
+document.querySelectorAll('[data-range]').forEach(b=>b.onclick=()=>setRange(b.dataset.range));
+$('r-from').onchange=$('r-to').onchange=()=>renderReport();
+
+function reportData(){
+  const f=$('r-from').value,t=$('r-to').value,inr=d=>(!f||d>=f)&&(!t||d<=t);
+  const activeBills=bills.filter(b=>(b.status||'active')==='active');
+  const bs=activeBills.filter(b=>inr(b.date)),es=entries.filter(e=>inr(e.date)),ps=production.filter(p=>inr(p.date)),xs=expenses.filter(x=>inr(x.date));
+  let profit=0,cogs=0;
+  const rows=items.map(i=>{
+    const received=es.filter(e=>e.itemId===i.id).reduce((s,e)=>s+Number(e.received||0),0),
+      sold=es.filter(e=>e.itemId===i.id).reduce((s,e)=>s+Number(e.sold||0),0),
+      waste=es.filter(e=>e.itemId===i.id).reduce((s,e)=>s+Number(e.waste||0),0),
+      prod=ps.filter(p=>p.itemId===i.id).reduce((s,p)=>s+Number(p.qty||0),0),
+      sales=bs.flatMap(b=>b.lines||[]).filter(l=>l.itemId===i.id).reduce((s,l)=>s+Number(l.qty||0),0),
+      p=sales*(Number(i.price||0)-Number(i.cost||0));
+    profit+=p;cogs+=sales*Number(i.cost||0);
+    return{name:i.name,category:i.category||'Other',received,sold,waste,prod,stock:stockOf(i.id),profit:p,unit:i.unit||''}
+  });
+  const catMap={};
+  bs.forEach(b=>(b.lines||[]).forEach(l=>{
+    const i=findItem(l.itemId);if(!i)return;
+    const c=i.category||'Other';
+    if(!catMap[c])catMap[c]={sales:0,profit:0};
+    catMap[c].sales+=Number(l.qty)*Number(i.price||0);
+    catMap[c].profit+=Number(l.qty)*(Number(i.price||0)-Number(i.cost||0))
+  }));
+  const expenseByCat={};
+  xs.forEach(x=>{const c=x.category||'Miscellaneous';expenseByCat[c]=(expenseByCat[c]||0)+Number(x.amount||0)});
+  const totalExpense=xs.reduce((s,x)=>s+Number(x.amount||0),0);
+  const totalSales=bs.reduce((s,b)=>s+Number(b.total||0),0);
+  const grossProfit=totalSales-cogs;
+  const netProfit=grossProfit-totalExpense;
+  return{bs,rows,sales:totalSales,profit,grossProfit,cogs,catMap,prodTotal:ps.reduce((s,p)=>s+Number(p.qty||0),0),expenseByCat,totalExpense,netProfit}
+}
+
+function renderUnrefundedSection(){
+  const box = $('report-unrefunded');
+  if(!box) return;
+  const unrefunded = archivedBills.filter(b => b.status !== 'refunded');
+  if(!unrefunded.length){
+    box.innerHTML = '<div class="empty">✅ Koi unrefunded bill nahi</div>';
+    return;
+  }
+  const total = unrefunded.reduce((s, b) => s + Number(b.total || 0), 0);
+  box.innerHTML = `
+    <div class="unrefunded-box">
+      <h3>⚠️ ${unrefunded.length} Unrefunded Bills (Archive Mein)</h3>
+      ${unrefunded.map(b => `
+        <div class="ufr-item">
+          <span>Bill #${esc(b.billNo)} — ${esc(b.customer || 'Walk-in')}</span>
+          <span style="font-family:Inter,sans-serif;font-weight:600">${money(b.total)}</span>
+        </div>
+      `).join('')}
+      <div class="ufr-total"><span>TOTAL</span><span>${money(total)}</span></div>
+    </div>
+  `;
+}
+
+function renderReport(){
+  const d=reportData();
+  $('r-total-sales').textContent=money(d.sales);
+  $('r-total-bills').textContent=d.bs.length;
+  $('r-total-prod').textContent=d.prodTotal;
+  $('r-profit').textContent=money(d.profit);
+  $('report-empty').style.display=items.length?'none':'block';
+  $('report-table').innerHTML=d.rows.map(r=>`<tr><td class="item-name">${esc(r.name)}</td><td class="num">${r.received}</td><td class="num">${r.prod}</td><td class="num">${r.sold}</td><td class="num">${r.waste}</td><td class="num">${r.stock} ${esc(r.unit)}</td><td class="num ${r.profit>=0?'profit-positive':'profit-negative'}">${money(r.profit)}</td></tr>`).join('');
+  const cats=Object.entries(d.catMap).sort((a,b)=>b[1].sales-a[1].sales);
+  $('report-cat-table').innerHTML=cats.length?cats.map(([c,v])=>`<tr><td>${esc(c)}</td><td class="num">${money(v.sales)}</td><td class="num profit-positive">${money(v.profit)}</td></tr>`).join(''):'<tr><td colspan="3" class="empty">No sales</td></tr>';
+  $('pl-sales').textContent=money(d.sales);
+  $('pl-bills').textContent=d.bs.length;
+  $('pl-cogs').textContent=money(d.cogs);
+  $('pl-gross').textContent=money(d.grossProfit);
+  $('pl-exp-total').textContent=money(d.totalExpense);
+  $('pl-net').textContent=money(d.netProfit);
+  $('pl-net').className='num '+(d.netProfit>=0?'profit-positive':'profit-negative');
+  const expCats=Object.entries(d.expenseByCat).sort((a,b)=>b[1]-a[1]);
+  $('pl-expense-breakdown').innerHTML=expCats.length?expCats.map(([c,v])=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--rule)"><span>${esc(c)}</span><span class="num">${money(v)}</span></div>`).join(''):'<div style="padding:6px 0;color:var(--ink-soft);font-size:.8rem">No expenses</div>';
+  renderUnrefundedSection();
+}
+
+$('export-csv').onclick=()=>{
+  const d=reportData();
+  let csv='\uFEFFItem,Category,Received,Produced,Sold,Waste,Stock,Profit\n';
+  d.rows.forEach(r=>csv+=`"${String(r.name).replace(/"/g,'""')}","${String(r.category).replace(/"/g,'""')}",${r.received},${r.prod},${r.sold},${r.waste},${r.stock},${r.profit}\n`);
+  csv+='\nPROFIT & LOSS\n';
+  csv+=`Total Sales,${d.sales}\nTotal Bills,${d.bs.length}\nCost of Goods,${d.cogs}\nGross Profit,${d.grossProfit}\n`;
+  csv+='\nEXPENSES\nCategory,Amount\n';
+  Object.entries(d.expenseByCat).forEach(([c,v])=>{csv+=`"${String(c).replace(/"/g,'""')}",${v}\n`});
+  csv+=`Total Expenses,${d.totalExpense}\nNet Profit,${d.netProfit}\n`;
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='report-'+fmtDate(today())+'.csv';a.click();toast('CSV exported')
+};
+
+$('export-pdf').onclick=()=>{
+  const d=reportData();
+  const expRows=Object.entries(d.expenseByCat).map(([c,v])=>`<tr><td>${esc(c)}</td><td>${money(v)}</td></tr>`).join('');
+  $('print-region').innerHTML=`<div class="inv-head"><h2>Stock Report</h2>${settings.name?'<div class="shop-meta">'+esc(settings.name)+'</div>':''}</div><div class="inv-meta"><span>Period: ${$('r-range-label').textContent}</span><span>Date: ${fmtDate(today())}</span></div><table class="inv-table"><tr><th>Item</th><th>Recv</th><th>Prod</th><th>Sold</th><th>Waste</th><th>Stock</th><th>Profit</th></tr>${d.rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${r.received}</td><td>${r.prod}</td><td>${r.sold}</td><td>${r.waste}</td><td>${r.stock} ${esc(r.unit)}</td><td>${money(r.profit)}</td></tr>`).join('')}</table><div style="margin-top:20px"><h3 style="text-align:center">Profit &amp; Loss</h3><table class="inv-table"><tr><th>Description</th><th>Amount</th></tr><tr><td>Total Sales</td><td>${money(d.sales)}</td></tr><tr><td>Total Bills</td><td>${d.bs.length}</td></tr><tr><td>Cost of Goods Sold</td><td>${money(d.cogs)}</td></tr><tr><td><strong>Gross Profit</strong></td><td><strong>${money(d.grossProfit)}</strong></td></tr><tr><td colspan="2" style="background:#eee"><strong>Expenses</strong></td></tr>${expRows}<tr><td><strong>Total Expenses</strong></td><td><strong>${money(d.totalExpense)}</strong></td></tr><tr style="background:#f5e4e1"><td><strong>NET PROFIT</strong></td><td><strong>${money(d.netProfit)}</strong></td></tr></table></div>`;
+  applyPrinterCSS();
+  setTimeout(()=>window.print(),100)
+};
+
+// ============================================
+// 🖨️ PRINT
+// ============================================
+function printInvoice(b){
+  const rows=(b.lines||[]).map(l=>{const i=findItem(l.itemId);return `<tr><td>${esc(i?i.name:'Item')}${i&&i.deletedAt?' 🗑️':''}</td><td>${l.qty}</td><td>${i?i.price:0}</td><td>${i?Number(i.price)*Number(l.qty):0}</td></tr>`}).join('');
+  const shopName=settings.name||'Ayyan Kitab Ghr N Photostate';
+  const logoHtml=settings.logo?`<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:65%;max-width:320px;text-align:center;opacity:.13;z-index:0;pointer-events:none"><img src="${settings.logo}" style="width:100%;height:auto;max-height:320px;object-fit:contain"></div>`:'';
+  const shopMeta=(settings.address?'<div class="shop-meta">'+esc(settings.address)+'</div>':'')+(settings.phone?'<div class="shop-meta">📞 '+esc(settings.phone)+'</div>':'');
+  $('print-region').innerHTML=`${logoHtml}<div style="position:relative;z-index:1"><div class="inv-head"><h2>${esc(shopName)}</h2>${shopMeta}</div><div class="inv-meta"><span>Bill #: ${b.billNo}</span><span>Date: ${fmtDate(b.date)}</span></div><div class="inv-meta"><span>Customer: ${esc(b.customer||'Walk-in')}</span><span>${b.method?'Payment: '+esc(b.method):''}</span></div><table class="inv-table"><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr>${rows}</table><div class="inv-meta" style="margin-top:10px"><span>Subtotal: ${money(b.subtotal)}</span><span>Discount: ${money(b.discount)}</span></div><div class="inv-total">Total: ${money(b.total)}<br>${b.change>0?'Received: '+money(b.received)+'<br>Change Returned: '+money(b.change):'Paid: '+money(b.paid)}<br>Balance: ${money(b.balance)}</div>${settings.footer?'<div class="inv-thanks">'+esc(settings.footer)+'</div>':''}</div>`;
+  applyPrinterCSS();
+  setTimeout(()=>window.print(),100);
+}
+
+function applyPrinterCSS(){
+  const w=settings.printer||'80';
+  let style=$('printer-style');
+  if(!style){style=document.createElement('style');style.id='printer-style';document.head.appendChild(style)}
+  if(w==='a4'){style.textContent='@media print{@page{size:A4;margin:15mm}}'}
+  else{style.textContent=`@media print{@page{size:${w}mm auto;margin:3mm}body{font-size:11px}}`}
+}
+
+function printLabel(id){
+  const i=items.find(x=>x.id===id);if(!i)return;
+  $('print-region').innerHTML=`<div class="label-print"><div class="lshop">${esc(settings.name||'')}</div><svg id="label-barcode"></svg><div class="lname">${esc(i.name)}</div><div class="lprice">${money(i.price)}${i.unit?' / '+esc(i.unit):''}</div></div>`;
+  try{JsBarcode('#label-barcode',String(i.code),{format:'CODE128',width:2,height:50,displayValue:true,fontSize:14})}catch(e){toast('Barcode fail')}
+  applyPrinterCSS();
+  setTimeout(()=>window.print(),100)
+}
+
+$('print-rate-list').onclick=()=>{
+  $('print-region').innerHTML='<div class="inv-head"><h2>'+(settings.name?esc(settings.name)+' --- ':'')+'Rate List</h2></div><div class="inv-meta"><span>Date: '+fmtDate(today())+'</span></div><table class="inv-table"><tr><th>Item</th><th>Category</th><th>Unit</th><th>Price</th></tr>'+items.map(i=>`<tr><td>${esc(i.name)}</td><td>${esc(i.category||'-')}</td><td>${esc(i.unit||'-')}</td><td>${money(i.price)}</td></tr>`).join('')+'</table>';
+  applyPrinterCSS();
+  setTimeout(()=>window.print(),100)
+};
+
+// ============================================
+// 🗑️ TRASH RENDER
+// ============================================
+function renderTrash(){
+  const type = currentTrashFilter;
+  const deletedArr = getArr('deleted'+type.charAt(0).toUpperCase()+type.slice(1)) || [];
+  const list = $('trash-list');
+  
+  $('trash-cnt-items').textContent = deletedItems.length;
+  $('trash-cnt-bills').textContent = deletedBills.length;
+  $('trash-cnt-expenses').textContent = deletedExpenses.length;
+  $('trash-cnt-customers').textContent = deletedCustomers.length;
+  $('trash-cnt-production').textContent = deletedProduction.length;
+  $('trash-cnt-entries').textContent = deletedEntries.length;
+  $('trash-cnt-payments').textContent = deletedPayments.length;
+
+  if(!deletedArr.length){
+    list.innerHTML='<div class="empty">🗑️ Trash khali hai — kuch delete nahi hua</div>';
+    return;
+  }
+
+  list.innerHTML = deletedArr.map(r=>{
+    if(type === 'bills'){
+      const st = r.status || 'active';
+      let cardClass = '', statusLabel = '';
+      if(r.unrefundedDelete && st !== 'refunded' && st !== 'void'){
+        cardClass = 'warning';
+        statusLabel = '⚠️ UNREFUNDED — Stock adjust nahi hua.';
+      } else if(st === 'refunded'){ cardClass = 'refunded'; statusLabel = '🟡 Refunded'; }
+      else if(st === 'void'){ cardClass = 'void'; statusLabel = '🔴 Void'; }
+      else if(st === 'exchanged'){ cardClass = 'exchanged'; statusLabel = '🔵 Exchanged'; }
+      else { statusLabel = '🟢 Active'; }
+      const delDate = r.deletedAt ? fmtDate(new Date(r.deletedAt).toISOString().slice(0,10)) : '';
+      const refundBtn = r.unrefundedDelete && st !== 'refunded' && st !== 'void'
+        ? `<button class="small warn" data-refund-trash="${r.id}">💰 Refund Now</button>` : '';
+      return `<div class="trash-card ${cardClass}">
+        <div class="trash-head">
+          <div class="trash-info">
+            <div class="trash-name">Bill #${esc(r.billNo)} — ${esc(r.customer||'Walk-in')}</div>
+            <div class="trash-meta">${fmtDate(r.date)} · ${money(r.total)}${delDate?' · Deleted: '+delDate:''}</div>
+            <div class="trash-status">${statusLabel}</div>
+          </div>
+          <div class="trash-actions">
+            ${refundBtn}
+            <button class="small green" data-restore="${r.id}">↩️ Restore</button>
+            <button class="small danger" data-permadel="${r.id}">🗑️ Permanent</button>
+          </div>
+        </div>
+      </div>`;
+    }
+    let name = r.name || r.category || 'Unknown';
+    let meta = '';
+    if(type==='items'){ meta = 'Code: '+r.code+' · Category: '+(r.category||'-'); }
+    else if(type==='expenses'){ meta = fmtDate(r.date)+' · '+money(r.amount)+' · '+(r.category||''); }
+    else if(type==='customers'){ meta = (r.phone||'-'); }
+    else if(type==='production'){ meta = fmtDate(r.date)+' · Qty: '+r.qty; }
+    else if(type==='entries'){ meta = fmtDate(r.date)+' · Recv: '+(r.received||0)+' · Sold: '+(r.sold||0); }
+    else if(type==='payments'){ meta = fmtDate(r.date)+' · '+money(r.amount); }
+    const delDate = r.deletedAt ? fmtDate(new Date(r.deletedAt).toISOString().slice(0,10)) : '';
+    return `<div class="trash-card">
+      <div class="trash-head">
+        <div class="trash-info">
+          <div class="trash-name">${esc(name)}</div>
+          <div class="trash-meta">${esc(meta)}${delDate?' · Deleted: '+delDate:''}</div>
+        </div>
+        <div class="trash-actions">
+          <button class="small green" data-restore="${r.id}">↩️ Restore</button>
+          <button class="small danger" data-permadel="${r.id}">🗑️ Permanent</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  list.querySelectorAll('[data-restore]').forEach(b=>b.onclick=async()=>{
+    const id = b.dataset.restore;
+    const record = deletedArr.find(r=>r.id===id);
+    if(!record) return;
+    if(!await confirmBox('↩️ Restore?','Yeh item wapas active list mein aa jayega.','Restore')) return;
+    restoreFromTrash(type, record);
+    saveData();renderAll();
+    toast('✅ Restore ho gaya');
+  });
+
+  list.querySelectorAll('[data-refund-trash]').forEach(b=>b.onclick=async()=>{
+    const id = b.dataset.refundTrash;
+    const bill = deletedBills.find(r=>r.id===id);
+    if(!bill) return;
+    if(!await confirmBox('💰 Refund Now?','Bill refund ho jayega aur stock wapas add hoga.','Refund')) return;
+    (bill.lines || []).forEach(l => {
+      const entry = stampRecord({
+        id: uid(), date: today(), itemId: l.itemId,
+        sold: 0, received: Number(l.qty) || 0, waste: 0,
+        note: 'Trash Refund Bill #' + bill.billNo
+      });
+      entries.push(entry);
+    });
+    bill.status = 'refunded';
+    bill.unrefundedDelete = false;
+    bill.refundDate = today();
+    bill.updatedAt = Date.now();
+    saveData(); renderAll();
+    toast('✅ Refund ho gaya — Stock wapas add');
+  });
+
+  list.querySelectorAll('[data-permadel]').forEach(b=>b.onclick=async()=>{
+    const id = b.dataset.permadel;
+    const record = deletedArr.find(r=>r.id===id);
+    if(!record) return;
+    let msg = 'Yeh action undo nahi ho sakta.';
+    let okText = 'Delete';
+    if(type === 'bills' && record.unrefundedDelete && record.status !== 'refunded' && record.status !== 'void'){
+      msg = '⚠️ YEH UNREFUNDED BILL HAI!\n\nBill #' + record.billNo + ' ka stock adjust nahi hua.\n\nYeh bill ARCHIVE mein jayega.';
+      okText = '📦 Archive Mein Bhejein';
+    }
+    const r = await promptBox('🗑️ Permanently Delete?',[{label: msg + '\n\nDelete Code daalein', type:'password', placeholder:'4-digit code'}],okText);
+    if(!r) return;
+    if((r[0]||'').trim() !== String(settings.deleteCode||'6208')){
+      toast('❌ Code galat hai');
+      return;
+    }
+    const result = permanentDelete(type, record);
+    saveData();renderAll();
+    if(result && result.archived){ toast('📦 Bill ARCHIVE mein bheja gaya'); }
+    else { toast('🗑️ Permanently delete ho gaya'); }
+  });
+}
+
+document.querySelectorAll('[data-trash]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('[data-trash]').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  currentTrashFilter = b.dataset.trash;
+  renderTrash();
+});
+
+// ============================================
+// 📦 ARCHIVE RENDER
+// ============================================
+function renderArchive(){
+  const list = $('archive-list');
+  if(!list) return;
+  if(!archivedBills.length){
+    list.innerHTML = '<div class="empty">📦 Archive khali hai</div>';
+    return;
+  }
+  list.innerHTML = archivedBills.map(b => {
+    const stockIssues = (b.lines || []).map(l => {
+      const item = findItem(l.itemId);
+      return `${l.qty} ${item ? item.name : 'Item'}`;
+    }).join(', ');
+    const archiveDate = b.archivedAt ? fmtDate(new Date(b.archivedAt).toISOString().slice(0, 10)) : '';
+    const isRefunded = b.status === 'refunded';
+    return `<div class="archive-card" style="${isRefunded ? 'background:#E4EEE3;border-color:#3F6B4F' : ''}">
+      <div class="arc-head">
+        <div class="arc-info">
+          <div class="arc-name">${isRefunded ? '✅' : '⚠️'} Bill #${esc(b.billNo)} — ${esc(b.customer || 'Walk-in')}</div>
+          <div class="arc-meta">${fmtDate(b.date)} · ${money(b.total)}${archiveDate ? ' · Archived: ' + archiveDate : ''}</div>
+          <div class="arc-status" style="color:${isRefunded ? '#3F6B4F' : '#A63D40'}">${isRefunded ? '✅ Refunded' : 'Stock Issue: ' + esc(stockIssues)}</div>
+        </div>
+        <div class="arc-actions">
+          <button class="small green" data-restore-archive="${b.id}">↩️ Restore</button>
+          ${!isRefunded ? `<button class="small warn" data-refund-archive="${b.id}">💰 Refund Now</button>` : ''}
+          <button class="small danger" data-forever-archive="${b.id}">🗑️ Delete Forever</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  
+  list.querySelectorAll('[data-restore-archive]').forEach(btn => btn.onclick = async () => {
+    const id = btn.dataset.restoreArchive;
+    const bill = archivedBills.find(b => b.id === id);
+    if(!bill) return;
+    if(!await confirmBox('↩️ Restore Bill?', 'Bill wapas active list mein aa jayega. Stock adjust nahi hoga.', 'Restore')) return;
+    archivedBills = archivedBills.filter(b => b.id !== id);
+    const restored = {...bill};
+    delete restored.archivedAt;
+    restored.restoredFromArchive = true;
+    restored.restoredAt = Date.now();
+    restored.updatedAt = Date.now();
+    bills.push(restored);
+    saveData(); renderAll();
+    toast('✅ Bill wapas active list mein');
+  });
+  
+  list.querySelectorAll('[data-refund-archive]').forEach(btn => btn.onclick = async () => {
+    const id = btn.dataset.refundArchive;
+    const bill = archivedBills.find(b => b.id === id);
+    if(!bill) return;
+    if(!await confirmBox('💰 Refund Now?', 'Bill refund ho jayega aur stock wapas add hoga.', 'Refund')) return;
+    (bill.lines || []).forEach(l => {
+      const entry = stampRecord({
+        id: uid(), date: today(), itemId: l.itemId,
+        sold: 0, received: Number(l.qty) || 0, waste: 0,
+        note: 'Archive Refund Bill #' + bill.billNo
+      });
+      entries.push(entry);
+    });
+    bill.status = 'refunded';
+    bill.unrefundedDelete = false;
+    bill.refundDate = today();
+    bill.updatedAt = Date.now();
+    saveData(); renderAll();
+    toast('✅ Refund ho gaya — Stock wapas add');
+  });
+  
+  list.querySelectorAll('[data-forever-archive]').forEach(btn => btn.onclick = async () => {
+    const id = btn.dataset.foreverArchive;
+    const bill = archivedBills.find(b => b.id === id);
+    if(!bill) return;
+    const r = await promptBox(
+      '🗑️ Delete Forever?',
+      [{label: '⚠️ Yeh action undo nahi ho sakta.\n\nDelete Code daalein:', type: 'password', placeholder: '4-digit code'}],
+      'Delete Forever'
+    );
+    if(!r) return;
+    if((r[0] || '').trim() !== String(settings.deleteCode || '6208')){
+      toast('❌ Code galat hai');
+      return;
+    }
+    const billEntries = entries.filter(e => e.note && e.note.includes('Bill #' + bill.billNo));
+    billEntries.forEach(entry => {
+      entries = entries.filter(e => e.id !== entry.id);
+    });
+    archivedBills = archivedBills.filter(b => b.id !== id);
+    saveData(); renderAll();
+    toast('🗑️ Bill + Entries delete — Stock adjust ✅');
+  });
+}
+
+// ============================================
+// ⚙️ SETTINGS
+// ============================================
+$('change-code-btn').onclick=()=>{
+  const oldC=$('old-code').value.trim();
+  const n1=$('new-code').value.trim();
+  const n2=$('new-code2').value.trim();
+  if(oldC!==String(settings.deleteCode||'6208')){toast('❌ Purana code galat hai');return}
+  if(!n1||n1.length<4||n1.length>8){toast('⚠️ Naya code 4-8 digits ka hona chahiye');return}
+  if(!/^\d+$/.test(n1)){toast('⚠️ Sirf numbers likhein');return}
+  if(n1!==n2){toast('⚠️ Dono naye codes match nahi kar rahe');return}
+  settings.deleteCode=n1;
+  $('old-code').value='';$('new-code').value='';$('new-code2').value='';
+  saveData();
+  toast('✅ Code change ho gaya');
+};
+
+$('s-logo').onchange=function(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  if(file.size>500*1024){toast('Logo 500KB se chhota hona chahiye');e.target.value='';return}
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    tempLogoData=ev.target.result;
+    $('logo-preview').src=tempLogoData;
+    $('logo-preview').style.display='block';
+    $('remove-logo').style.display='inline-block';
+    toast('Logo selected. Ab "Save Settings" dabayein.');
+  };
+  reader.readAsDataURL(file);
+};
+
+$('remove-logo').onclick=function(){
+  tempLogoData='';settings.logo='';
+  $('s-logo').value='';
+  $('logo-preview').style.display='none';
+  $('remove-logo').style.display='none';
+  saveData();toast('Logo removed')
+};
+
+$('save-settings').onclick=()=>{
+  settings.name=$('s-name').value.trim()||'Ayyan Kitab Ghr N Photostate';
+  settings.address=$('s-address').value.trim();
+  settings.phone=$('s-phone').value.trim();
+  settings.currency=$('s-currency').value.trim()||'Rs.';
+  settings.lowstock=Number($('s-lowstock').value)||0;
+  settings.footer=$('s-footer').value.trim();
+  settings.printer=$('s-printer').value;
+  settings.reminder=$('s-reminder').checked;
+  if(tempLogoData)settings.logo=tempLogoData;
+  saveData();renderAll();toast('Settings saved');
+};
+
+$('test-print').onclick=()=>{
+  $('print-region').innerHTML=`<div class="inv-head"><h2>${esc(settings.name||'Test Print')}</h2><div class="shop-meta">${esc(settings.address||'')}</div><div class="shop-meta">${settings.phone?'📞 '+esc(settings.phone):''}</div></div><div style="text-align:center;padding:20px 0"><div style="font-size:1.2rem;font-weight:700">Test Receipt</div><div style="margin:10px 0">Printer: ${settings.printer}mm</div><div style="border-top:1px dashed #333;margin:15px 0"></div><div>Item 1 ........ Rs. 100</div><div>Item 2 ........ Rs. 250</div><div style="border-top:1px dashed #333;margin:15px 0"></div><div style="font-weight:700">Total: Rs. 350</div></div><div class="inv-thanks">${esc(settings.footer||'Thank you!')}</div>`;
+  applyPrinterCSS();
+  setTimeout(()=>window.print(),100)
+};
+
+function markBackup(){settings.lastBackup=new Date().toISOString();saveData();renderLastBackup()}
+
+function renderLastBackup(){
+  const lbl=$('last-backup-label');if(!lbl)return;
+  if(!settings.lastBackup){lbl.textContent='Last backup: Never';return}
+  const d=new Date(settings.lastBackup);
+  lbl.textContent='Last backup: '+fmtDate(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'))+' '+d.toLocaleTimeString()
+}
+
+function checkBackupReminder(){
+  if(!settings.reminder)return;
+  if(!settings.lastBackup){setTimeout(()=>toast('⚠️ Please backup your data'),1500);return}
+  const days=(Date.now()-new Date(settings.lastBackup).getTime())/(1000*60*60*24);
+  if(days>=7)setTimeout(()=>toast('⚠️ 7+ days since backup'),1500)
+}
+
+$('backup-data').onclick=()=>{
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify({
+    items,entries,bills,customers,payments,production,expenses,nextCode,settings,
+    deletedItems,deletedEntries,deletedBills,deletedCustomers,deletedPayments,deletedProduction,deletedExpenses,
+    archivedBills, usedBillNumbers
+  },null,2)],{type:'application/json'}));
+  a.download='ayyan-kitab-ghar-backup-'+today()+'.json';
+  a.click();markBackup();toast('Backup created')
+};
+
+$('restore-data').onclick=()=>$('restore-file').click();
+
+$('restore-file').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const p=JSON.parse(r.result);
+      if(!p.items||!p.entries||!p.bills)throw Error();
+      items=p.items;entries=p.entries;bills=p.bills;
+      customers=p.customers||[];payments=p.payments||[];
+      production=p.production||[];expenses=p.expenses||[];
+      deletedItems=p.deletedItems||[];deletedEntries=p.deletedEntries||[];
+      deletedBills=p.deletedBills||[];deletedCustomers=p.deletedCustomers||[];
+      deletedPayments=p.deletedPayments||[];deletedProduction=p.deletedProduction||[];
+      deletedExpenses=p.deletedExpenses||[];
+      archivedBills = p.archivedBills || [];
+      usedBillNumbers = p.usedBillNumbers || [];
+      nextCode=p.nextCode||1001;
+      settings=Object.assign(settings,p.settings||{});
+      if(!settings.deleteCode)settings.deleteCode='6208';
+      saveData();renderAll();toast('Backup restored')
+    }catch(x){toast('Invalid backup')}
+  };
+  r.readAsText(f)
+};
+
+// ============================================
+// 🗑️ BULK DELETE
+// ============================================
+function renderBulkDeleteList(type, records, modalContainer){
+  const container = modalContainer;
+  if(!records.length){
+    container.innerHTML = '<div class="empty">Kuch delete karne ke liye nahi hai</div>';
+    return;
+  }
+  container.innerHTML = `
+    <div class="select-all-bar">
+      <input type="checkbox" id="bulk-select-all">
+      <label for="bulk-select-all">Select All (${records.length} items)</label>
+    </div>
+    <input type="text" id="bulk-search" placeholder="🔍 Search..." style="margin-bottom:8px">
+    <div class="delete-list" id="bulk-list">
+      ${records.map(r=>{
+        let name = r.name || r.billNo || r.category || 'Unknown';
+        let meta = '';
+        if(type==='items'){ meta = 'Code: '+r.code+' · Stock: '+stockOf(r.id); }
+        else if(type==='bills'){ meta = 'Bill #'+r.billNo+' · '+fmtDate(r.date)+' · '+money(r.total); }
+        else if(type==='expenses'){ meta = fmtDate(r.date)+' · '+money(r.amount); }
+        else if(type==='customers'){ meta = (r.phone||'-'); }
+        else if(type==='production'){ meta = fmtDate(r.date)+' · Qty: '+r.qty; }
+        return `<div class="delete-row">
+          <input type="checkbox" data-bulk-id="${r.id}" id="bulk-${r.id}">
+          <label for="bulk-${r.id}">
+            <div>${esc(name)}</div>
+            <div class="meta">${esc(meta)}</div>
+          </label>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="hint" id="bulk-count" style="margin-top:8px">Selected: 0</div>
+  `;
+  const selectAll = container.querySelector('#bulk-select-all');
+  const checkboxes = container.querySelectorAll('[data-bulk-id]');
+  const countEl = container.querySelector('#bulk-count');
+  const searchEl = container.querySelector('#bulk-search');
+  function updateCount(){
+    const checked = [...checkboxes].filter(c=>c.checked).length;
+    countEl.textContent = 'Selected: ' + checked;
+    selectAll.checked = checked === checkboxes.length && checkboxes.length > 0;
+  }
+  selectAll.onchange = () => {
+    checkboxes.forEach(c => { if(c.parentElement.style.display!=='none') c.checked = selectAll.checked; });
+    updateCount();
+  };
+  checkboxes.forEach(c => c.onchange = updateCount);
+  searchEl.oninput = () => {
+    const q = searchEl.value.toLowerCase().trim();
+    checkboxes.forEach(c => {
+      const row = c.parentElement;
+      const text = row.textContent.toLowerCase();
+      row.style.display = (!q || text.includes(q)) ? 'flex' : 'none';
+    });
+  };
+}
+
+let currentBulkType = '';
+
+async function openBulkDeleteModal(type){
+  const records = getArr(type);
+  const typeName = type.charAt(0).toUpperCase()+type.slice(1);
+  if(!records.length){toast('Koi '+typeName+' nahi hai');return}
+  currentBulkType = type;
+  return new Promise(res=>{
+    modalResolve = res;
+    $('modal-title').textContent = '🗑️ Bulk Delete '+typeName;
+    $('modal-msg').textContent = 'Select karein kaunsi '+typeName+' delete karni hai.';
+    $('modal-msg').style.display = 'block';
+    const box = $('modal-box');
+    if(box) box.classList.add('large');
+    const fc = $('modal-fields');
+    fc.innerHTML = '<div id="bulk-container"></div>';
+    renderBulkDeleteList(type, records, fc.querySelector('#bulk-container'));
+    $('modal-ok').textContent = '🗑️ Delete Selected';
+    $('modal-cancel').textContent = 'Cancel';
+    $('modal-overlay').classList.add('open');
+  });
+}
+
+const originalModalOk = $('modal-ok').onclick;
+$('modal-ok').onclick = async () => {
+  const bulkCheckboxes = $('modal-fields').querySelectorAll('[data-bulk-id]');
+  if(bulkCheckboxes.length > 0){
+    const selectedIds = [...bulkCheckboxes].filter(c=>c.checked).map(c=>c.dataset.bulkId);
+    if(!selectedIds.length){toast('Koi item select nahi kiya');return}
+    const selectedRecords = getArr(currentBulkType).filter(r=>selectedIds.includes(r.id));
+    if(!await confirmBox('🗑️ Delete '+selectedRecords.length+' items?','Yeh trash mein jayenge.','Delete')){ return; }
+    softDelete(currentBulkType, selectedRecords);
+    saveData();renderAll();
+    closeModal(true);
+    toast('🗑️ '+selectedRecords.length+' items trash mein');
+    return;
+  }
+  const inputs=[...$('modal-fields').querySelectorAll('input:not([data-bulk-id]),select')];
+  if(inputs.length===0){closeModal(true);return}
+  closeModal(inputs.map(i=>i.value));
+};
+
+$('bulk-delete-items').onclick=()=>openBulkDeleteModal('items');
+$('bulk-delete-bills').onclick=()=>openBulkDeleteModal('bills');
+$('bulk-delete-expenses').onclick=()=>openBulkDeleteModal('expenses');
+$('bulk-delete-customers').onclick=()=>openBulkDeleteModal('customers');
+
+// ============================================
+// 🔍 UNIVERSAL SEARCH
+// ============================================
+function setupUniversalItemSearch(inputId, resultsId, selectId, filterFn){
+  const input = $(inputId);
+  const results = $(resultsId);
+  const select = $(selectId);
+  if (!input || !results || !select) return null;
+
+  function pickItem(id){
+    const item = items.find(x => x.id === id);
+    if (!item) return false;
+    select.value = id;
+    input.value = item.name;
+    results.style.display = 'none';
+    input.dispatchEvent(new Event('item-selected'));
+    return true;
+  }
+
+  function renderResults(query){
+    let filtered = items;
+    if (filterFn) filtered = items.filter(filterFn);
+    if (query){
+      const q = query.toLowerCase().trim();
+      filtered = filtered.filter(i =>
+        i.name.toLowerCase().includes(q) ||
+        String(i.code).includes(q) ||
+        (i.category || '').toLowerCase().includes(q)
+      );
+    }
+    filtered = filtered.slice(0, 30);
+    if (!filtered.length){
+      results.innerHTML = '<div style="padding:12px;text-align:center;color:#888;font-size:.85rem">❌ Koi item nahi mila</div>';
+      results.style.display = 'block';
+      return;
+    }
+    results.innerHTML = filtered.map(i => {
+      const st = stockOf(i.id);
+      const color = st<=0?'#A63D40':(Number(i.lowStock)>0&&st<=Number(i.lowStock)?'#A8791F':'#3F6B4F');
+      return `<div class="sr-item" data-pick="${i.id}"><div><div><strong>${esc(i.name)}</strong>${i.unit?' <span style="color:#888;font-size:.8rem">('+esc(i.unit)+')</span>':''}</div><div style="font-family:Inter;font-size:.7rem;color:#888">Code: ${i.code}</div></div><div style="font-family:Inter;font-size:.8rem;color:${color};font-weight:600">Stock: ${st}</div></div>`;
+    }).join('');
+    results.style.display = 'block';
+    results.querySelectorAll('[data-pick]').forEach(el => {
+      el.onclick = () => pickItem(el.dataset.pick);
+    });
+  }
+
+  function handleBarcode(barcode){
+    const code = String(barcode).trim();
+    if (!code) return false;
+    let item = items.find(x => String(x.code) === code);
+    if (!item) item = items.find(x => x.name.toLowerCase() === code.toLowerCase());
+    if (!item) item = items.find(x => String(x.code).includes(code) || code.includes(String(x.code)));
+    if (item){
+      pickItem(item.id);
+      toast('✓ ' + item.name + ' select ho gaya');
+      return true;
+    } else {
+      toast('❌ Code nahi mila: ' + code);
+      return false;
+    }
+  }
+
+  input.addEventListener('focus', () => renderResults(input.value));
+  input.addEventListener('input', () => {
+    const val = input.value;
+    if (val && /^\d{8,}$/.test(val.trim())){
+      const exact = items.find(x => String(x.code) === val.trim());
+      if (exact){ handleBarcode(val); return; }
+    }
+    renderResults(val);
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter'){
+      e.preventDefault();
+      const val = input.value.trim();
+      if (val) handleBarcode(val);
+    }
+  });
+  input.addEventListener('blur', () => {
+    setTimeout(() => { results.style.display = 'none'; }, 250);
+  });
+
+  return { renderResults, pickItem, handleBarcode };
+}
+
+// ============================================
+// 🔄 RENDER ALL
+// ============================================
+function renderAll(){
+  renderSelects();renderLowStock();renderDashboard();renderItemsTable();renderEntries();
+  renderBillLines();renderBills();renderProduction();renderCustomers();renderExpiry();
+  renderExpenses();renderReport();renderTrash();renderArchive();
+  $('s-name').value=settings.name||'';
+  $('s-address').value=settings.address||'';
+  $('s-phone').value=settings.phone||'';
+  $('s-currency').value=settings.currency||'Rs.';
+  $('s-lowstock').value=settings.lowstock||'';
+  $('s-footer').value=settings.footer||'';
+  $('s-printer').value=settings.printer||'80';
+  $('s-reminder').checked=!!settings.reminder;
+  renderLastBackup();
+  if(settings.logo){
+    tempLogoData=settings.logo;
+    $('logo-preview').src=settings.logo;
+    $('logo-preview').style.display='block';
+    $('remove-logo').style.display='inline-block'
+  }else{
+    tempLogoData='';
+    $('logo-preview').style.display='none';
+    $('remove-logo').style.display='none'
+  }
+}
+
+function renderSelects(){
+  const opts=items.map(i=>`<option value="${i.id}">${esc(i.name)}${i.unit?' ('+esc(i.unit)+')':''} --- Stock: ${stockOf(i.id)}</option>`).join('');
+  $('e-item').innerHTML=opts||'<option value="">Add items first</option>';
+  $('b-item').innerHTML=opts||'<option value="">Add items first</option>';
+  const prodItems=items.filter(i=>i.type==='production');
+  $('p-item').innerHTML=(prodItems.length?prodItems:items).map(i=>`<option value="${i.id}">${esc(i.name)}</option>`).join('')||'<option value="">Add items first</option>';
+  $('b-customer').innerHTML='<option value="">Walk-in Customer</option>'+customers.map(c=>`<option value="${c.id}">${esc(c.name)}${customerDue(c.id)?' --- Due '+money(customerDue(c.id)):''}</option>`).join('');
+  const cats=[...new Set(items.map(i=>i.category).filter(Boolean))];
+  $('item-filter-cat').innerHTML='<option value="">All Categories</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+  if(currentItemFilterCat)$('item-filter-cat').value=currentItemFilterCat;
+  setTimeout(syncSearchInputs,50);
+}
+
+function syncSearchInputs(){
+  const bSel=$('b-item'),bInp=$('b-item-search');
+  if(bSel&&bInp&&bSel.value){const i=items.find(x=>x.id===bSel.value);if(i)bInp.value=i.name}
+  const eSel=$('e-item'),eInp=$('e-item-search');
+  if(eSel&&eInp&&eSel.value){const i=items.find(x=>x.id===eSel.value);if(i)eInp.value=i.name}
+  const pSel=$('p-item'),pInp=$('p-item-search');
+  if(pSel&&pInp&&pSel.value){const i=items.find(x=>x.id===pSel.value);if(i)pInp.value=i.name}
+}
+
+// ============================================
+// ⚠️ LOW STOCK
+// ============================================
+function renderLowStock(){
+  const low=items.filter(i=>Number(i.lowStock)>0&&stockOf(i.id)<=Number(i.lowStock)).map(i=>({i,st:stockOf(i.id),lim:Number(i.lowStock)}));
+  const out=low.filter(x=>x.st<=0).sort((a,b)=>a.i.name.localeCompare(b.i.name));
+  const few=low.filter(x=>x.st>0).sort((a,b)=>(a.st/a.lim)-(b.st/b.lim));
+  const row=(x,isOut)=>`<div class="erow${isOut?' ls-row-out':''}"><div>${esc(x.i.name)}${x.i.category?' <span class="pill info">'+esc(x.i.category)+'</span>':''}<div class="meta">Alert limit: ${x.lim} · ${isOut?'Khatam!':'Sirf '+x.st+(x.i.unit?' '+esc(x.i.unit):'')+' bacha hai'}</div></div><div style="text-align:left"><span class="pill low">Stock: ${x.st}</span><br><button class="small green" data-lsin="${x.i.id}">📥 Stock In</button></div></div>`;
+  $('ls-out-count').textContent=out.length;
+  $('ls-low-count').textContent=few.length;
+  $('ls-out-list').innerHTML=out.length?out.map(x=>row(x,true)).join(''):'<div class="empty">Koi item khatam nahi</div>';
+  $('ls-low-list').innerHTML=few.length?few.map(x=>row(x,false)).join(''):'<div class="empty">Koi item kam nahi</div>';
+  document.querySelectorAll('[data-lsin]').forEach(b=>b.onclick=()=>{
+    showTab('entry');
+    $('e-item').value=b.dataset.lsin;
+    const it=items.find(x=>x.id===b.dataset.lsin);
+    if(it)$('e-item-search').value=it.name;
+    $('e-received').focus()
+  });
+  const bd=$('nav-low-badge');
+  bd.textContent=low.length;
+  bd.style.display=low.length?'inline-block':'none';
+}
+
+$('stat-low').onclick=()=>showTab('lowstock');
+
+// ============================================
+// SETUP SEARCH
+// ============================================
+const bSearchApi = setupUniversalItemSearch('b-item-search', 'b-item-results', 'b-item');
+const eSearchApi = setupUniversalItemSearch('e-item-search', 'e-item-results', 'e-item');
+const pSearchApi = setupUniversalItemSearch('p-item-search', 'p-item-results', 'p-item', i => i.type === 'production');
+
+$('b-item-search').addEventListener('item-selected', () => {
+  setTimeout(() => {
+    const qtyField = $('b-qty');
+    if(qtyField){ qtyField.value = ''; qtyField.focus(); qtyField.select(); }
+  }, 120);
+});
+
+$('b-qty').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter'){ e.preventDefault(); autoAddFromQty(); }
+});
+
+$('b-qty').addEventListener('blur', () => {
+  setTimeout(() => {
+    if ($('b-item').value && Number($('b-qty').value) > 0){ autoAddFromQty(); }
+  }, 200);
+});
+
+function autoAddFromQty(){
+  const id = $('b-item').value;
+  const qty = Number($('b-qty').value) || 0;
+  if (!id || qty <= 0) return;
+  const existing = currentBillLines.find(l => l.itemId === id);
+  const alreadyIn = existing ? Number(existing.qty) || 0 : 0;
+  if (alreadyIn + qty > stockOf(id)){
+    toast('⚠️ Not enough stock. Available: ' + Math.max(0, stockOf(id) - alreadyIn));
+    $('b-qty').value = 1;
+    $('b-item-search').focus();
+    return;
+  }
+  if (existing){ existing.qty += qty; }
+  else { currentBillLines.push({ itemId: id, qty: qty, unitPrice: Number((items.find(x => x.id === id) || {}).price) || 0 }); }
+  $('b-qty').value = 1;
+  $('b-item-search').value = '';
+  $('b-item').value = '';
+  renderBillLines();
+  setTimeout(() => {
+    const inp = $('b-item-search');
+    if(inp){ inp.focus(); inp.value = ''; }
+  }, 100);
+}
+
+$('e-item-search').addEventListener('item-selected', () => {
+  setTimeout(() => { $('e-received').focus(); }, 120);
+});
+
+$('p-item-search').addEventListener('item-selected', () => {
+  setTimeout(() => { $('p-qty').focus(); }, 120);
+});
+
+// ============================================
+// 📅 DATE HINTS
+// ============================================
+function refreshDateHints(){
+  document.querySelectorAll('input[type=date]').forEach(inp=>{
+    if(!inp._hint){
+      const h=document.createElement('div');
+      h.className='hint date-hint';
+      inp.insertAdjacentElement('afterend',h);
+      inp._hint=h;
+      inp.addEventListener('change',refreshDateHints);
+      inp.addEventListener('input',refreshDateHints)
+    }
+    inp._hint.textContent=inp.value?'📅 '+fmtDate(inp.value):''
+  })
+}
+
+setInterval(refreshDateHints,600);
+
+[['b-discount','0'],['b-paid','0'],['b-qty','1']].forEach(([id,def])=>{
+  const el=$(id);if(!el)return;
+  el.addEventListener('focus',()=>{if(el.value===def)el.value=''});
+  el.addEventListener('blur',()=>{
+    if(el.value.trim()===''){ el.value=def; if(id!=='b-qty')renderBillLines() }
+  })
+});
+
+// ============================================
+// 🚀 INIT
+// ============================================
+loadData();
+$('e-date').value=today();
+$('p-date').value=today();
+$('x-date').value=today();
+setRange('all');
+document.querySelector('[data-xrange="today"]').classList.add('active');
+refreshDateHints();
+renderAll();
+checkBackupReminder();
+toast('💾 Offline mode — data is device par mehfooz hai');
+console.log('✅ Ayyan Kitab Ghr N Photostate — Offline v6.0 ready');
+</script>
+</body>
+</html>
